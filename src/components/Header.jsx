@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Scale, Coins, LogOut, ChevronDown } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
+  const { t } = useTranslation();
   const [showMenu, setShowMenu] = useState(false);
 
   const menuItems = [
-    { id: 'lawfirms', label: '전문 상담' },
-    { id: 'terms', label: '이용약관' },
-    { id: 'support', label: '고객지원' }
+    { id: 'lawfirms', label: t('header.menu.consultation') },
+    { id: 'terms', label: t('header.menu.terms') },
+    { id: 'support', label: t('header.menu.support') }
   ];
 
   const isActive = (viewId) => currentView === viewId;
@@ -24,7 +27,7 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
           <Scale className="text-white w-5 h-5" />
         </div>
         <span className="text-lg font-black text-slate-900 tracking-tighter">
-          LEXGUARD
+          {t('header.logo')}
         </span>
       </button>
 
@@ -43,7 +46,6 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
             `}
           >
             {item.label}
-            {/* Active Indicator */}
             {isActive(item.id) && (
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-indigo-600 rounded-t-full animate-slide-up" />
             )}
@@ -53,6 +55,9 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
 
       {/* Right Side */}
       <div className="flex items-center gap-4">
+        {/* Language Switcher */}
+        <LanguageSwitcher />
+
         {isLoggedIn ? (
           <div className="flex items-center gap-4">
             <div 
@@ -65,7 +70,7 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
             <button 
               onClick={onLogout}
               className="text-slate-400 hover:text-red-500 transition-colors hover:scale-110 duration-300"
-              aria-label="로그아웃"
+              aria-label={t('header.logout')}
             >
               <LogOut className="w-4 h-4" />
             </button>
@@ -109,7 +114,7 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
               onClick={() => onNavigate('signup')}
               className="text-sm font-bold text-slate-900 px-4 py-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-all hover:scale-105 duration-300"
             >
-              로그인
+              {t('header.login')}
             </button>
           </>
         )}

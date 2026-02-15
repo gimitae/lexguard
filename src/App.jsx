@@ -237,7 +237,7 @@ const App = () => {
       {appState.ui.currentView === 'landing' && (
         <footer className="py-12 border-t border-slate-100 text-center">
           <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">
-            © 2024 LEXGUARD LEGAL. ALL SECURED.
+            © 2024 바른계약 LEGAL. ALL SECURED.
           </p>
         </footer>
       )}

@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { Upload } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const FileUploadZone = ({ onFileUpload }) => {
+  const { t } = useTranslation();
   const [dragActive, setDragActive] = useState(false);
   const fileInputRef = useRef(null);
 
@@ -54,14 +56,14 @@ const FileUploadZone = ({ onFileUpload }) => {
           <Upload className={`w-8 h-8 ${dragActive ? 'text-indigo-600' : 'text-slate-400'}`} />
         </div>
         <div className="text-center">
-          <p className="text-xl font-bold text-slate-900">PDF 또는 Word 파일을 드래그하세요</p>
-          <p className="text-slate-400 text-sm mt-1">최대 20MB까지 업로드 가능</p>
+          <p className="text-xl font-bold text-slate-900">{t('landing.upload.title')}</p>
+          <p className="text-slate-400 text-sm mt-1">{t('landing.upload.subtitle')}</p>
         </div>
         <button 
           onClick={handleButtonClick}
           className="mt-2 px-8 py-3 bg-slate-900 text-white rounded-xl font-bold shadow-lg hover:bg-slate-800 transition-all active:scale-95"
         >
-          내 컴퓨터에서 파일 찾기
+          {t('landing.upload.button')}
         </button>
         <input 
           ref={fileInputRef}

@@ -1,9 +1,13 @@
 import React from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { RISK_SEVERITY } from '../constants';
+import { useTranslation } from 'react-i18next';
+
+//여기도 없는듯
 
 const RiskCard = ({ risk, isSelected, onSelect }) => {
   const severity = RISK_SEVERITY[risk.severity.toUpperCase()] || RISK_SEVERITY.HIGH;
+  const { t } = useTranslation();
 
   return (
     <button

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Star, MapPin, Briefcase, Award, MessageCircle, Filter, Search } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const LawFirmsView = () => {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -62,15 +64,15 @@ const LawFirmsView = () => {
   ];
 
   const categories = [
-    { id: 'all', label: '전체' },
-    { id: 'labor', label: '노동법' },
-    { id: 'contract', label: '계약법' },
-    { id: 'civil', label: '민사소송' }
+    { id: 'all', label: t('lawfirms.filters.all') },
+    { id: 'labor', label: t('lawfirms.filters.labor') },
+    { id: 'contract', label: t('lawfirms.filters.contract') },
+    { id: 'civil', label: t('lawfirms.filters.civil') }
   ];
 
   const handleConsultation = (firmName) => {
     // TODO: 백엔드 연결 시 구현
-    alert(`${firmName}과의 상담 신청 기능은 곧 제공됩니다.`);
+    alert(t('lawfirms.consultationAlert', { firmName }));
   };
 
   return (
@@ -79,10 +81,10 @@ const LawFirmsView = () => {
       <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">
-            전문 법률 상담
+            {t('lawfirms.title')}
           </h1>
           <p className="text-indigo-100 text-lg max-w-2xl">
-            계약서 분석 결과를 바탕으로 전문 변호사와 1:1 상담을 받아보세요
+            {t('lawfirms.subtitle')}
           </p>
         </div>
       </div>
@@ -94,7 +96,7 @@ const LawFirmsView = () => {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
             <input
               type="text"
-              placeholder="법률사무소 이름 또는 전문 분야 검색..."
+              placeholder={t('lawfirms.search')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-slate-200 focus:border-indigo-600 focus:outline-none text-slate-900 font-medium"
@@ -162,28 +164,28 @@ const LawFirmsView = () => {
                 <div className="flex items-center gap-2">
                   <Briefcase className="w-4 h-4 text-indigo-600" />
                   <div>
-                    <p className="text-xs text-slate-400">경력</p>
+                    <p className="text-xs text-slate-400">{t('lawfirms.stats.experience')}</p>
                     <p className="font-bold text-slate-900">{firm.experience}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <Award className="w-4 h-4 text-indigo-600" />
                   <div>
-                    <p className="text-xs text-slate-400">처리 건수</p>
-                    <p className="font-bold text-slate-900">{firm.cases}건</p>
+                    <p className="text-xs text-slate-400">{t('lawfirms.stats.cases')}</p>
+                    <p className="font-bold text-slate-900">{firm.cases}{t('lawfirms.stats.casesUnit')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-indigo-600" />
                   <div>
-                    <p className="text-xs text-slate-400">위치</p>
+                    <p className="text-xs text-slate-400">{t('lawfirms.stats.location')}</p>
                     <p className="font-bold text-slate-900">{firm.location}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <MessageCircle className="w-4 h-4 text-indigo-600" />
                   <div>
-                    <p className="text-xs text-slate-400">응답 시간</p>
+                    <p className="text-xs text-slate-400">{t('lawfirms.stats.responseTime')}</p>
                     <p className="font-bold text-slate-900">{firm.responseTime}</p>
                   </div>
                 </div>
@@ -192,7 +194,7 @@ const LawFirmsView = () => {
               {/* CTA */}
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-slate-400">상담료</p>
+                  <p className="text-xs text-slate-400">{t('lawfirms.consultationFee')}</p>
                   <p className="text-lg font-black text-emerald-600">{firm.consultationFee}</p>
                 </div>
                 <button
@@ -200,7 +202,7 @@ const LawFirmsView = () => {
                   className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg flex items-center gap-2 active:scale-95"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  상담 신청
+                  {t('lawfirms.consultation')}
                 </button>
               </div>
             </div>
@@ -210,13 +212,13 @@ const LawFirmsView = () => {
         {/* CTA Bottom */}
         <div className="mt-16 text-center bg-gradient-to-br from-indigo-50 to-blue-50 rounded-3xl p-12 border border-indigo-100">
           <h2 className="text-3xl font-black text-slate-900 mb-4">
-            찾는 전문가가 없으신가요?
+            {t('lawfirms.cta.title')}
           </h2>
           <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-            저희가 귀하의 상황에 맞는 최적의 법률 전문가를 추천해드립니다
+            {t('lawfirms.cta.description')}
           </p>
           <button className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all shadow-xl">
-            맞춤 추천 받기
+            {t('lawfirms.cta.button')}
           </button>
         </div>
       </div>

@@ -3,7 +3,7 @@ import json
 from openai import AsyncOpenAI
 
 # OpenAI 클라이언트 초기화
-client = AsyncOpenAI(api_key="")
+client = AsyncOpenAI(api_key="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")
 
 
 async def analyze_contract(document_text: str) -> dict:

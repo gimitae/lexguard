@@ -2,8 +2,8 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
-from backend.utils.file_parser import parse_document
-from backend.utils.contract_analyzer import analyze_contract
+from utils.file_parser import parse_document
+from utils.contract_analyzer import analyze_contract
 
 # 환경변수 로드
 load_dotenv()

@@ -1,7 +1,13 @@
 import React from 'react';
 import { Info, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+//여기 아직 번역본이 없는듯
 
 const DemoNotice = ({ onConfirm, onCancel }) => {
+
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-[calc(100vh-73px)] flex items-center justify-center bg-slate-900/40 backdrop-blur-sm px-6">
       <div className="w-full max-w-lg bg-white rounded-[32px] shadow-2xl overflow-hidden p-10">
