@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LEXGUARD</title>
+</head>
+<body>
+
+<h1>{{ t.title }}</h1>
+
+<form action="/analyze?lang={{ lang }}" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">{{ t.analyze }}</button>
+</form>
+
+<div style="text-align:right; margin-bottom:20px;">
+    <b>{{ t.language }}:</b>
+    <a href="/?lang=ko">KO</a> |
+    <a href="/?lang=en">EN</a> |
+    <a href="/?lang=vi">VI</a> |
+    <a href="/?lang=ja">JP</a> |
+    <a href="/?lang=zh">CN</a> |
+    <a href="/?lang=th">TH</a>
+</div>
+
+{% if analysis %}
+<hr>
+<h2>{{ t.risk_score }}: {{ risk_score }}</h2>
+
+{% for item in analysis %}
+<hr>
+<h3>{{ t.clause }}</h3>
+<p>{{ item.clause }}</p>
+
+<h4>{{ t.risk_level }}: {{ item.severity }}</h4>
+<p>{{ item.explanation }}</p>
+
+<p><b>{{ t.related_law }}:</b> {{ item.law_reference }}</p>
+{% endfor %}
+
+{% endif %}
+
+</body>
+</html>
