@@ -273,5 +273,37 @@
     "loginError": "이메일 또는 비밀번호가 올바르지 않습니다.",
     "signupSuccess": "가입을 축하합니다! 코인 5개가 지급되었습니다.",
     "signupFail": "가입 실패: "
+  },
+  "mypage": {
+    "title": "마이페이지",
+    "token": {
+      "title": "보유 토큰",
+      "charge": "충전하기",
+      "history": "토큰 사용 내역"
+    },
+    "profile": {
+      "title": "계정 정보",
+      "email": "이메일",
+      "joinDate": "가입일",
+      "plan": "이용 플랜",
+      "manage": "계정 설정"
+    },
+    "statistics": {
+      "title": "이용 통계",
+      "analyzed": "분석 완료",
+      "risksFound": "위험 발견",
+      "tokensUsed": "토큰 사용",
+      "unit": "건"
+    },
+    "actions": {
+      "logout": "로그아웃",
+      "withdraw": "회원 탈퇴"
+    }
+  },
+  "shop": {
+    "title": "토큰 충전소",
+    "starter": "스타터",
+    "pro": "프로",
+    "business": "비즈니스"
   }
 }
