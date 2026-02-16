@@ -1,0 +1,24 @@
+1. 새로 만든 파일 (New)
+
+src/firebase.js (파이어베이스 설정)
+
+src/Login.jsx (로그인 팝업)
+
+src/Signup.jsx (회원가입 팝업 - 파일명 대소문자 확인! SignUp.jsx일 수도 있음)
+
+2. 수정한 파일 (Modified)
+
+src/App.jsx (로그인/회원가입 로직 연결, 모달 위치 수정)
+
+src/components/Header.jsx (로그인 버튼 번역 적용, 디자인 수정)
+
+src/locales/ko/translation.json (한국어 번역에 "auth" 추가)
+
+src/locales/en/translation.json (영어 번역에 "auth" 추가)
+
+package.json & package-lock.json (firebase 라이브러리 설치로 인해 변경됨)
+
+src/views/SupportView.jsx(고객지원 파베랑 연결됨)
+
+
+파베 작동 잘됨 ㅇㅇ 파베도 관리자 추가가 가능한가?
