@@ -258,5 +258,20 @@
     "noFile": "파일을 선택해주세요.",
     "uploadFailed": "파일 업로드에 실패했습니다. 다시 시도해주세요.",
     "analysisFailed": "분석 중 오류가 발생했습니다. 다시 시도해주세요."
+  },
+  "auth": {
+    "loginTitle": "로그인",
+    "signupTitle": "회원가입",
+    "email": "이메일",
+    "password": "비밀번호",
+    "passwordPlaceholder": "비밀번호 (6자리 이상)",
+    "loginButton": "로그인하기",
+    "signupButton": "가입하기",
+    "close": "닫기",
+    "noAccount": "계정이 없으신가요?",
+    "moveToSignup": "회원가입 하기",
+    "loginError": "이메일 또는 비밀번호가 올바르지 않습니다.",
+    "signupSuccess": "가입을 축하합니다! 코인 5개가 지급되었습니다.",
+    "signupFail": "가입 실패: "
   }
 }
