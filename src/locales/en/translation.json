@@ -1,10 +1,6 @@
 {
   "header": {
-<<<<<<< HEAD
-    "logo": "LexGuard",
-=======
     "logo": "Barungyeyak",
->>>>>>> origin/mypage
     "menu": {
       "consultation": "Expert Consultation",
       "terms": "Terms of Service",
@@ -22,7 +18,7 @@
       "securityBadge": "All documents are encrypted and destroyed immediately after analysis."
     },
     "upload": {
-      "title": "Drag and drop your PDF or Word file",
+      "title": "Drag and drop your PDF, Word, or Image file",
       "subtitle": "Maximum file size: 20MB",
       "button": "Browse Files",
       "choose": "Choose File"
@@ -56,7 +52,11 @@
     },
     "trusted": {
       "label": "TRUSTED BY",
-      "companies": ["LAW-TECH", "SECURE_LABS", "CORP_LEGAL"]
+      "companies": [
+        "LAW-TECH",
+        "SECURE_LABS",
+        "CORP_LEGAL"
+      ]
     },
     "howItWorks": {
       "title": "Get Started in 3 Simple Steps",
@@ -64,7 +64,7 @@
         {
           "number": "1",
           "title": "Upload Contract",
-          "description": "Drag and drop your PDF or Word file to upload"
+          "description": "Drag and drop your PDF, Word, or Image file to upload"
         },
         {
           "number": "2",
@@ -153,12 +153,12 @@
     "contact": {
       "email": {
         "title": "Email",
-        "value": "support@barungyeyak.com",
+        "value": "support@lexguard.com",
         "time": "Response within 24 hours"
       },
       "kakao": {
         "title": "KakaoTalk",
-        "value": "@barungyeyak",
+        "value": "@lexguard",
         "time": "Weekdays 09:00 - 18:00"
       },
       "phone": {
@@ -177,19 +177,11 @@
       "items": [
         {
           "question": "How accurate is the contract analysis?",
-          "answer": "Our AI model has learned from thousands of case laws and legal data to detect risks with over 95% accuracy. However, we recommend consulting with a professional lawyer for final judgment."
+          "answer": "Our AI model has learned from thousands of case laws and legal data to detect risks with over 95% accuracy."
         },
         {
           "question": "Is my uploaded contract safe?",
-          "answer": "All documents are immediately encrypted and destroyed after analysis. Your personal information and contract details are thoroughly protected."
-        },
-        {
-          "question": "Can I download the analysis results?",
-          "answer": "Yes, you can download the results in PDF format after analysis is complete. Premium members can also download the modified contract."
-        },
-        {
-          "question": "What's the difference between free and paid versions?",
-          "answer": "The free version allows 2 analyses per month, while the paid version includes unlimited analysis, expert consultation, and automatic contract correction features."
+          "answer": "All documents are immediately encrypted and destroyed after analysis."
         }
       ]
     }
@@ -200,50 +192,10 @@
     "sections": {
       "article1": {
         "title": "Article 1 (Purpose)",
-        "content": "These Terms and Conditions aim to define the rights, obligations, responsibilities, and other necessary matters between the Company and users regarding the use of the AI-based contract analysis service (hereinafter referred to as \"Service\") provided by Barungyeyak (hereinafter referred to as \"Company\")."
-      },
-      "article2": {
-        "title": "Article 2 (Membership Registration)",
-        "content1": "① Membership is established when a user agrees to the terms and conditions, applies for membership, and the Company approves such application.",
-        "content2": "② The Company may refuse approval or terminate the service agreement for applications that fall under any of the following:",
-        "items": [
-          "Using another person's identity",
-          "Providing false information",
-          "Failure to meet other application requirements set by the Company"
-        ]
-      },
-      "article3": {
-        "title": "Article 3 (Service Provision)",
-        "content": "① The Company provides the following services:",
-        "services": [
-          "AI-based contract risk analysis",
-          "Connection to legal expert consultation",
-          "Contract revision suggestions",
-          "Other services developed by the Company or provided through partnership agreements"
-        ]
-      },
-      "article4": {
-        "title": "Article 4 (Service Limitations and Disclaimer)",
-        "content1": "① All analysis results, revision suggestions, and advice provided by this Service are for reference purposes only and should not be interpreted as legal advice or opinions.",
-        "content2": "② Users acknowledge that they bear full responsibility for any modifications to contracts or decisions made based on the Service's analysis results.",
-        "content3": "③ The Company assumes no liability for any direct or indirect damages, contractual disputes, or legal responsibilities arising from the use of the Service.",
-        "content4": "④ For accurate legal advice, we strongly recommend consulting with a qualified attorney or legal professional."
+        "content": "Terms regarding the AI-based contract analysis service provided by LexGuard."
       }
-    },
-    "placeholder": "📄 Detailed terms will be added after backend integration",
-    "contact": {
-      "title": "Inquiries",
-      "description": "For questions regarding the Terms of Service, please contact us through Customer Support."
     }
   },
-  "signup": {
-    "title": "Get Started",
-    "loginSignup": "Sign Up",
-    "or": "OR",
-    "skipForNow": "Skip for Now"
-  },
-<<<<<<< HEAD
-=======
   "auth": {
     "loginTitle": "Log In",
     "signupTitle": "Sign Up",
@@ -259,7 +211,6 @@
     "signupSuccess": "Welcome! 5 tokens have been added to your account.",
     "signupFail": "Sign up failed: "
   },
->>>>>>> origin/mypage
   "common": {
     "yes": "Yes",
     "no": "No",
@@ -276,61 +227,24 @@
   },
   "errors": {
     "fileTooBig": "File size cannot exceed 20MB.",
-    "invalidFileType": "Only PDF or DOCX files are allowed.",
+    "invalidFileType": "Only PDF, DOCX, or Image files are allowed.",
     "noFile": "Please select a file.",
     "uploadFailed": "File upload failed. Please try again.",
     "analysisFailed": "An error occurred during analysis. Please try again."
   },
-<<<<<<< HEAD
-  "auth": {
-    "loginTitle": "Log In",
-    "signupTitle": "Sign Up",
-    "email": "Email",
-    "password": "Password",
-    "passwordPlaceholder": "Password (6+ chars)",
-    "loginButton": "Log In",
-    "signupButton": "Sign Up",
-    "close": "Close",
-    "noAccount": "Don't have an account?",
-    "moveToSignup": "Sign up here",
-    "loginError": "Invalid email or password.",
-    "signupSuccess": "Welcome! 5 tokens have been added to your account.",
-    "signupFail": "Sign up failed: "
-  },
-  "mypage": {
-    "title": "My Page",
-    "token": {
-      "title": "Tokens",
-      "charge": "Top Up",
-      "history": "History"
-    },
-    "profile": {
-      "title": "Account Info",
-      "email": "Email",
-      "joinDate": "Joined",
-      "plan": "Plan",
-      "manage": "Settings"
-    },
-    "statistics": {
-      "title": "Usage Stats",
-      "analyzed": "Analyzed",
-      "risksFound": "Risks Found",
-      "tokensUsed": "Tokens Used",
-      "unit": "cases"
-=======
   "mypage": {
     "title": "My Page",
     "token": {
       "title": "Available Tokens",
       "charge": "Top Up",
-      "history": "Token Usage History"
+      "history": "Usage History"
     },
     "profile": {
-      "title": "Account Information",
+      "title": "Account Info",
       "email": "Email Address",
-      "joinDate": "Joined Date",
+      "joinDate": "Joined",
       "plan": "Current Plan",
-      "manage": "Account Settings"
+      "manage": "Settings"
     },
     "statistics": {
       "title": "Usage Statistics",
@@ -338,20 +252,16 @@
       "risksFound": "Risks Detected",
       "tokensUsed": "Tokens Used",
       "unit": "case(s)"
->>>>>>> origin/mypage
     },
     "actions": {
       "logout": "Log Out",
       "withdraw": "Delete Account"
     }
-<<<<<<< HEAD
   },
   "shop": {
     "title": "Token Shop",
     "starter": "Starter",
     "pro": "Pro",
     "business": "Business"
-=======
->>>>>>> origin/mypage
   }
 }

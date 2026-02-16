@@ -1,13 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
 import { AlertTriangle, Lock, ArrowRight } from 'lucide-react';
 
 const PreviewResult = ({ file, result, onAuth }) => {
-  // 백엔드 API 응답 파싱
   const analysis = result?.analysis || [];
   const totalClauses = result?.total_clauses || 0;
 
-  // Severity별 통계 계산 (AnalysisView와 동일한 로직)
   const calculateRiskStats = () => {
     const stats = {
       critical: 0,
@@ -31,14 +28,12 @@ const PreviewResult = ({ file, result, onAuth }) => {
 
   const riskStats = calculateRiskStats();
 
-  // 기존 형식과 호환성을 위한 risks 객체 생성
   const risks = {
-    critical: riskStats.critical + riskStats.high, // 위험 (CRITICAL + HIGH)
-    warning: riskStats.medium, // 주의 (MEDIUM)
-    info: riskStats.low // 검토 (LOW)
+    critical: riskStats.critical + riskStats.high,
+    warning: riskStats.medium,
+    info: riskStats.low
   };
 
-  // 미리보기용 위험 조항 (최대 3개)
   const previewRisks = analysis
     .filter(item => item.severity !== 'NONE')
     .slice(0, 3)
@@ -52,7 +47,6 @@ const PreviewResult = ({ file, result, onAuth }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-8">
       <div className="max-w-3xl w-full">
-        {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-indigo-100 rounded-full mb-6">
             <AlertTriangle className="w-10 h-10 text-indigo-600" />
@@ -65,7 +59,6 @@ const PreviewResult = ({ file, result, onAuth }) => {
           </p>
         </div>
 
-        {/* Risk Summary */}
         <div className="bg-white rounded-3xl shadow-xl p-8 mb-8">
           <h2 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-6">
             위험도 요약
@@ -86,13 +79,12 @@ const PreviewResult = ({ file, result, onAuth }) => {
             </div>
           </div>
 
-          {/* Preview Risks */}
           {previewRisks.length > 0 && (
             <div className="space-y-4">
               <h3 className="text-sm font-black text-slate-400 uppercase tracking-widest">
                 발견된 주요 이슈 미리보기
               </h3>
-              {previewRisks.map((risk, index) => (
+              {previewRisks.map((risk) => (
                 <div
                   key={risk.id}
                   className="p-4 bg-slate-50 rounded-xl border border-slate-200 blur-sm"
@@ -117,7 +109,6 @@ const PreviewResult = ({ file, result, onAuth }) => {
           )}
         </div>
 
-        {/* Login Prompt */}
         <div className="bg-white rounded-3xl shadow-xl p-8 text-center">
           <Lock className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
           <h3 className="text-2xl font-black text-slate-900 mb-3">
@@ -141,58 +132,12 @@ const PreviewResult = ({ file, result, onAuth }) => {
           </p>
         </div>
 
-        {/* Stats */}
         <div className="mt-8 text-center">
           <p className="text-sm text-slate-500">
             총 <strong className="text-slate-700">{totalClauses}개 조항</strong> 분석 완료 •
             <strong className="text-red-600"> {risks.critical}개 위험</strong> •
             <strong className="text-amber-600"> {risks.warning}개 주의</strong> •
             <strong className="text-blue-600"> {risks.info}개 검토</strong>
-=======
-import { CheckCircle, FileText, ShieldCheck, ArrowRight } from 'lucide-react';
-
-const PreviewResult = ({ file, result, onAuth }) => {
-  const { risks } = result || { risks: { critical: 1, warning: 2 } };
-
-  return (
-    <div className="min-h-[calc(100vh-73px)] flex items-center justify-center bg-slate-900/40 backdrop-blur-sm px-6">
-      <div className="w-full max-w-xl bg-white rounded-[40px] shadow-2xl overflow-hidden relative">
-        <div className="p-10 text-center">
-          <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-10 h-10 text-emerald-500" />
-          </div>
-          
-          <h2 className="text-3xl font-black text-slate-900 mb-2">
-            분석이 완료되었습니다!
-          </h2>
-          
-          <p className="text-slate-500 font-medium mb-8">
-            <span className="text-red-500 font-bold">치명적 리스크 {risks.critical}건</span>과{' '}
-            <span className="text-amber-500 font-bold">주의 조항 {risks.warning}건</span>이 발견되었습니다.<br/>
-            지금 무료 가입하고 상세 내용을 확인하세요.
-          </p>
-          
-          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-8 text-left space-y-3">
-            <div className="flex items-center gap-3 text-slate-400 text-sm">
-              <FileText className="w-4 h-4" /> 
-              <span>{file?.name || "Contract.pdf"}</span>
-            </div>
-            <div className="flex items-center gap-3 text-slate-400 text-sm">
-              <ShieldCheck className="w-4 h-4" /> 
-              <span>2,400개 판례 대조 분석 완료</span>
-            </div>
-          </div>
-
-          <button 
-            onClick={onAuth}
-            className="w-full py-5 bg-indigo-600 text-white rounded-2xl font-black text-lg hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-100 flex items-center justify-center gap-3 active:scale-95"
-          >
-            결과 무료로 확인하기 <ArrowRight className="w-5 h-5" />
-          </button>
-          
-          <p className="mt-6 text-xs text-slate-400 font-medium">
-            소셜 계정으로 3초 만에 시작하기
->>>>>>> origin/mypage
           </p>
         </div>
       </div>

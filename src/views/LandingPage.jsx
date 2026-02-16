@@ -4,14 +4,8 @@ import FileUploadZone from '../components/FileUploadZone';
 import { FEATURE_LIST } from '../constants';
 import { useTranslation } from 'react-i18next';
 
-<<<<<<< HEAD
-// ✨ onNavigate prop 추가됨
+// onNavigate prop 포함 (HEAD 기준 유지)
 const LandingPage = ({ onFileUpload, onNavigate }) => {
-=======
-
-const LandingPage = ({ onFileUpload }) => {
->>>>>>> origin/mypage
-  
   const { t } = useTranslation();
 
   return (
@@ -21,12 +15,12 @@ const LandingPage = ({ onFileUpload }) => {
         <div className="bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-[11px] font-bold mb-6 border border-emerald-100 flex items-center gap-2">
           <Lock className="w-3 h-3" /> {t('landing.hero.securityBadge')}
         </div>
-        
+
         <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
           {t('landing.hero.title')} <br className="md:hidden"/>
           <span className="text-indigo-600">{t('landing.hero.titleHighlight')}</span>
         </h1>
-        
+
         <p className="text-slate-500 text-lg mb-12 max-w-xl font-medium">
           {t('landing.hero.subtitle1')} <br/>
           {t('landing.hero.subtitle2')}
@@ -35,7 +29,9 @@ const LandingPage = ({ onFileUpload }) => {
         <FileUploadZone onFileUpload={onFileUpload} />
 
         <div className="mt-12 flex items-center gap-8 grayscale opacity-40">
-          <span className="text-xs font-black tracking-widest text-slate-400">{t('landing.trusted.label')}</span>
+          <span className="text-xs font-black tracking-widest text-slate-400">
+            {t('landing.trusted.label')}
+          </span>
           <div className="flex gap-10 font-black italic text-slate-900">
             {t('landing.trusted.companies', { returnObjects: true }).map((company, i) => (
               <span key={i}>{company}</span>
@@ -49,10 +45,11 @@ const LandingPage = ({ onFileUpload }) => {
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tight">
-              {t('landing.features.title')} <br/>{t('landing.features.titleBold')}
+              {t('landing.features.title')} <br/>
+              {t('landing.features.titleBold')}
             </h2>
             <div className="space-y-4">
-              {FEATURE_LIST.map((feature, i) => (
+              {FEATURE_LIST.map((feature) => (
                 <div key={feature.id} className="flex items-start gap-3">
                   <div className="mt-1 p-0.5 bg-indigo-600 rounded-full">
                     <CheckCircle className="w-4 h-4 text-white" />
@@ -62,7 +59,7 @@ const LandingPage = ({ onFileUpload }) => {
               ))}
             </div>
           </div>
-          
+
           <div className="bg-white p-6 rounded-3xl shadow-2xl border border-slate-200 rotate-2">
             <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-4">
               <div className="flex gap-2">
@@ -101,15 +98,19 @@ const LandingPage = ({ onFileUpload }) => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {/* Stat 1 */}
+            {/* Stat cards */}
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-4xl font-black">{t('landing.lawfirms.stats.lawyersCount')}</p>
-                  <p className="text-indigo-200 text-sm">{t('landing.lawfirms.stats.lawyers')}</p>
+                  <p className="text-4xl font-black">
+                    {t('landing.lawfirms.stats.lawyersCount')}
+                  </p>
+                  <p className="text-indigo-200 text-sm">
+                    {t('landing.lawfirms.stats.lawyers')}
+                  </p>
                 </div>
               </div>
               <p className="text-white/80 text-sm">
@@ -117,15 +118,18 @@ const LandingPage = ({ onFileUpload }) => {
               </p>
             </div>
 
-            {/* Stat 2 */}
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                   <Star className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-4xl font-black">{t('landing.lawfirms.stats.ratingScore')}</p>
-                  <p className="text-indigo-200 text-sm">{t('landing.lawfirms.stats.rating')}</p>
+                  <p className="text-4xl font-black">
+                    {t('landing.lawfirms.stats.ratingScore')}
+                  </p>
+                  <p className="text-indigo-200 text-sm">
+                    {t('landing.lawfirms.stats.rating')}
+                  </p>
                 </div>
               </div>
               <p className="text-white/80 text-sm">
@@ -133,15 +137,18 @@ const LandingPage = ({ onFileUpload }) => {
               </p>
             </div>
 
-            {/* Stat 3 */}
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                   <Shield className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-4xl font-black">{t('landing.lawfirms.stats.resolutionRate')}</p>
-                  <p className="text-indigo-200 text-sm">{t('landing.lawfirms.stats.resolution')}</p>
+                  <p className="text-4xl font-black">
+                    {t('landing.lawfirms.stats.resolutionRate')}
+                  </p>
+                  <p className="text-indigo-200 text-sm">
+                    {t('landing.lawfirms.stats.resolution')}
+                  </p>
                 </div>
               </div>
               <p className="text-white/80 text-sm">
@@ -151,14 +158,9 @@ const LandingPage = ({ onFileUpload }) => {
           </div>
 
           <div className="text-center">
-<<<<<<< HEAD
-            {/* ✨ [수정됨] 클릭 시 상담 페이지(lawfirms)로 이동 */}
+            {/* onNavigate 유지 */}
             <button
               onClick={() => onNavigate('lawfirms')}
-=======
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
->>>>>>> origin/mypage
               className="inline-flex items-center gap-3 px-8 py-4 bg-white text-indigo-600 rounded-2xl font-black text-lg hover:bg-indigo-50 transition-all shadow-2xl active:scale-95"
             >
               {t('landing.lawfirms.cta')}
@@ -177,14 +179,16 @@ const LandingPage = ({ onFileUpload }) => {
           <h2 className="text-3xl md:text-4xl font-black text-center text-slate-900 mb-16">
             {t('landing.howItWorks.title')}
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-12">
             {t('landing.howItWorks.steps', { returnObjects: true }).map((step, i) => (
               <div key={i} className="text-center">
                 <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-black text-indigo-600">
                   {step.number}
                 </div>
-                <h3 className="text-xl font-black text-slate-900 mb-3">{step.title}</h3>
+                <h3 className="text-xl font-black text-slate-900 mb-3">
+                  {step.title}
+                </h3>
                 <p className="text-slate-600">
                   {step.description}
                 </p>
@@ -197,8 +201,4 @@ const LandingPage = ({ onFileUpload }) => {
   );
 };
 
-<<<<<<< HEAD
 export default LandingPage;
-=======
-export default LandingPage;
->>>>>>> origin/mypage

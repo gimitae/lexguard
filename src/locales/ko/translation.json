@@ -274,10 +274,6 @@
     "signupSuccess": "가입을 축하합니다! 코인 5개가 지급되었습니다.",
     "signupFail": "가입 실패: "
   },
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/mypage
   "mypage": {
     "title": "마이페이지",
     "token": {
@@ -303,14 +299,11 @@
       "logout": "로그아웃",
       "withdraw": "회원 탈퇴"
     }
-<<<<<<< HEAD
   },
   "shop": {
     "title": "토큰 충전소",
     "starter": "스타터",
     "pro": "프로",
     "business": "비즈니스"
-=======
->>>>>>> origin/mypage
-  }
-}
+
+} }

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { X, User, Mail, Coins, Calendar, Settings, LogOut, Crown } from 'lucide-react';
@@ -8,84 +7,56 @@ const MyPage = ({ isOpen, onClose, user, onLogout }) => {
   const { t } = useTranslation();
   const [isShopOpen, setIsShopOpen] = useState(false);
 
-  // ✨ user 객체에서 stats(통계)도 꺼내옵니다.
+  // user 객체에서 정보 및 통계 데이터 추출
   const { email, tokens, createdAt, isPremium, stats } = user || {};
-  
-  // 통계 기본값 처리 (없을 경우 0)
+
+  // 통계 데이터 기본값 처리
   const analyzedCount = stats?.analyzed || 0;
   const risksFoundCount = stats?.risksFound || 0;
   const tokensUsedCount = stats?.tokensUsed || 0;
 
+  // 날짜 포맷팅 함수
   const formatDate = (date) => {
     if (!date) return '-';
+    // Firebase Timestamp 객체와 일반 Date 객체 모두 대응
     const d = date.seconds ? new Date(date.seconds * 1000) : new Date(date);
     return d.toLocaleDateString('ko-KR');
-=======
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { X, User, Mail, Coins, Calendar, Settings, LogOut, Crown } from 'lucide-react';
-
-const MyPage = ({ isOpen, onClose, user, onLogout }) => {
-  const { t } = useTranslation();
-
-  // user 객체에서 정보 추출
-  const { email, tokens, createdAt, isPremium } = user || {};
-  
-  // 가입일 포맷팅
-  const formatDate = (date) => {
-    if (!date) return '-';
-    return new Date(date).toLocaleDateString('ko-KR');
->>>>>>> origin/mypage
   };
 
   return (
     <>
-<<<<<<< HEAD
-=======
-      {/* 오버레이 */}
->>>>>>> origin/mypage
-      <div 
+      {/* 배경 오버레이 */}
+      <div
         className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
       />
 
-<<<<<<< HEAD
-=======
-      {/* 마이페이지 패널 */}
->>>>>>> origin/mypage
-      <div 
+      {/* 마이페이지 사이드 패널 */}
+      <div
         className={`fixed right-0 top-0 h-full w-full md:w-[450px] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {/* 헤더 */}
+        {/* 헤더 섹션 */}
         <div className="flex items-center justify-between p-6 border-b border-slate-200 bg-gradient-to-r from-indigo-50 to-purple-50">
           <h2 className="text-2xl font-black text-slate-900">
             {t('mypage.title', '마이페이지')}
           </h2>
-<<<<<<< HEAD
-          <button onClick={onClose} className="p-2 hover:bg-white/50 rounded-lg transition-colors">
-=======
-          <button 
+          <button
             onClick={onClose}
             className="p-2 hover:bg-white/50 rounded-lg transition-colors"
             aria-label="닫기"
           >
->>>>>>> origin/mypage
             <X className="w-5 h-5 text-slate-600" />
           </button>
         </div>
 
-        {/* 컨텐츠 */}
+        {/* 메인 컨텐츠 */}
         <div className="overflow-y-auto h-[calc(100vh-80px)] p-6">
-<<<<<<< HEAD
-          
-          {/* 프로필 카드 (기존 유지) */}
-=======
-          {/* 프로필 카드 */}
->>>>>>> origin/mypage
+
+          {/* 프로필 카드 섹션 */}
           <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl p-6 mb-6 text-white shadow-xl">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
@@ -104,8 +75,8 @@ const MyPage = ({ isOpen, onClose, user, onLogout }) => {
                 <p className="text-white/80 text-sm">{email}</p>
               </div>
             </div>
-            
-            {/* 토큰 정보 */}
+
+            {/* 토큰 잔액 및 충전 */}
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -116,43 +87,20 @@ const MyPage = ({ isOpen, onClose, user, onLogout }) => {
                   <p className="text-2xl font-black">{tokens || 0}</p>
                 </div>
               </div>
-<<<<<<< HEAD
-              <button 
+              <button
                 onClick={() => setIsShopOpen(true)}
                 className="px-4 py-2 bg-white text-indigo-600 rounded-lg font-bold text-sm hover:bg-white/90 transition-colors shadow-lg active:scale-95"
               >
-=======
-              <button className="px-4 py-2 bg-white text-indigo-600 rounded-lg font-bold text-sm hover:bg-white/90 transition-colors">
->>>>>>> origin/mypage
                 {t('mypage.token.charge')}
               </button>
             </div>
           </div>
 
-<<<<<<< HEAD
-          {/* 계정 정보 (기존 유지) */}
-=======
-          {/* 계정 정보 */}
->>>>>>> origin/mypage
+          {/* 상세 계정 정보 */}
           <div className="bg-slate-50 rounded-2xl p-6 mb-6">
             <h3 className="text-sm font-black text-slate-400 uppercase tracking-wider mb-4">
               {t('mypage.profile.title', '계정 정보')}
             </h3>
-<<<<<<< HEAD
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center"><Mail className="w-5 h-5 text-slate-600" /></div>
-                <div><p className="text-xs text-slate-500 font-bold">{t('mypage.profile.email')}</p><p className="font-bold text-slate-900">{email || '-'}</p></div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center"><Calendar className="w-5 h-5 text-slate-600" /></div>
-                <div><p className="text-xs text-slate-500 font-bold">{t('mypage.profile.joinDate')}</p><p className="font-bold text-slate-900">{formatDate(createdAt)}</p></div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center"><Coins className="w-5 h-5 text-slate-600" /></div>
-                <div><p className="text-xs text-slate-500 font-bold">{t('mypage.profile.plan')}</p><p className="font-bold text-slate-900">{isPremium ? 'Premium' : 'Free'}</p></div>
-=======
-            
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
@@ -163,7 +111,6 @@ const MyPage = ({ isOpen, onClose, user, onLogout }) => {
                   <p className="font-bold text-slate-900">{email || '-'}</p>
                 </div>
               </div>
-
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-slate-600" />
@@ -173,85 +120,56 @@ const MyPage = ({ isOpen, onClose, user, onLogout }) => {
                   <p className="font-bold text-slate-900">{formatDate(createdAt)}</p>
                 </div>
               </div>
-
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
                   <Coins className="w-5 h-5 text-slate-600" />
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 font-bold">{t('mypage.profile.plan')}</p>
-                  <p className="font-bold text-slate-900">
-                    {isPremium ? 'Premium' : 'Free'}
-                  </p>
+                  <p className="font-bold text-slate-900">{isPremium ? 'Premium' : 'Free'}</p>
                 </div>
->>>>>>> origin/mypage
               </div>
             </div>
           </div>
 
-<<<<<<< HEAD
-          {/* ✨ 이용 통계 (실제 데이터 연결) */}
-=======
-          {/* 사용 통계 */}
->>>>>>> origin/mypage
+          {/* 이용 통계 섹션 */}
           <div className="bg-slate-50 rounded-2xl p-6 mb-6">
             <h3 className="text-sm font-black text-slate-400 uppercase tracking-wider mb-4">
               {t('mypage.statistics.title', '이용 통계')}
             </h3>
-            
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl p-4">
-<<<<<<< HEAD
-                {/* 분석 횟수 */}
+              <div className="bg-white rounded-xl p-4 shadow-sm">
                 <p className="text-2xl font-black text-indigo-600 mb-1">{analyzedCount}</p>
                 <p className="text-xs text-slate-600 font-bold">{t('mypage.statistics.analyzed')}</p>
               </div>
-              <div className="bg-white rounded-xl p-4">
-                {/* 발견 위험 */}
+              <div className="bg-white rounded-xl p-4 shadow-sm">
                 <p className="text-2xl font-black text-emerald-600 mb-1">{risksFoundCount}</p>
                 <p className="text-xs text-slate-600 font-bold">{t('mypage.statistics.risksFound')}</p>
               </div>
-              <div className="bg-white rounded-xl p-4">
-                {/* 사용 토큰 */}
+              <div className="bg-white rounded-xl p-4 shadow-sm col-span-2">
                 <p className="text-2xl font-black text-purple-600 mb-1">{tokensUsedCount}</p>
-=======
-                <p className="text-2xl font-black text-indigo-600 mb-1">12</p>
-                <p className="text-xs text-slate-600 font-bold">{t('mypage.statistics.analyzed')}</p>
-              </div>
-              <div className="bg-white rounded-xl p-4">
-                <p className="text-2xl font-black text-emerald-600 mb-1">8</p>
-                <p className="text-xs text-slate-600 font-bold">{t('mypage.statistics.risksFound')}</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-4">
-                <p className="text-2xl font-black text-purple-600 mb-1">24</p>
->>>>>>> origin/mypage
                 <p className="text-xs text-slate-600 font-bold">{t('mypage.statistics.tokensUsed')}</p>
               </div>
             </div>
           </div>
 
-<<<<<<< HEAD
-          <button onClick={onLogout} className="w-full flex items-center justify-center gap-2 p-4 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl font-bold transition-colors">
-=======
-        
-
           {/* 로그아웃 버튼 */}
-          <button 
+          <button
             onClick={onLogout}
             className="w-full flex items-center justify-center gap-2 p-4 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl font-bold transition-colors"
           >
->>>>>>> origin/mypage
             <LogOut className="w-5 h-5" />
             {t('mypage.actions.logout')}
           </button>
         </div>
       </div>
-<<<<<<< HEAD
 
-      <TokenShopModal isOpen={isShopOpen} onClose={() => setIsShopOpen(false)} userEmail={email} />
-=======
->>>>>>> origin/mypage
+      {/* 토큰 충전 모달 */}
+      <TokenShopModal
+        isOpen={isShopOpen}
+        onClose={() => setIsShopOpen(false)}
+        userEmail={email}
+      />
     </>
   );
 };

@@ -8,11 +8,10 @@ src/Signup.jsx (회원가입 팝업 - 파일명 대소문자 확인! SignUp.jsx�
 
 2. 수정한 파일 (Modified)
 
-<<<<<<< HEAD
+
 src/App.jsx (로그인/회원가입 로직 연결, 모달 위치 수정 기타 등등)
-=======
+
 src/App.jsx (로그인/회원가입 로직 연결, 모달 위치 수정)
->>>>>>> origin/mypage
 
 src/components/Header.jsx (로그인 버튼 번역 적용, 디자인 수정)
 
@@ -24,9 +23,9 @@ package.json & package-lock.json (firebase 라이브러리 설치로 인해 변�
 
 src/views/SupportView.jsx(고객지원 파베랑 연결됨)
 
-<<<<<<< HEAD
+
 src/views/LawFirmsView.jsx(전문상담 요청,파베 저장)
-=======
->>>>>>> origin/mypage
+
+
 
 파베 작동 잘됨 ㅇㅇ 파베도 관리자 추가가 가능한가?
