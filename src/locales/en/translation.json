@@ -1,6 +1,6 @@
 {
   "header": {
-    "logo": "바른계약",
+    "logo": "LexGuard",
     "menu": {
       "consultation": "Expert Consultation",
       "terms": "Terms of Service",
@@ -21,7 +21,7 @@
       "title": "Drag and drop your PDF or Word file",
       "subtitle": "Maximum file size: 20MB",
       "button": "Browse Files",
-      "choose": "파일 선택"
+      "choose": "Choose File"
     },
     "features": {
       "title": "Expert-Verified",
@@ -237,6 +237,21 @@
     "loginSignup": "Sign Up",
     "or": "OR",
     "skipForNow": "Skip for Now"
+  },
+  "auth": {
+    "loginTitle": "Log In",
+    "signupTitle": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "Password (6+ chars)",
+    "loginButton": "Log In",
+    "signupButton": "Sign Up",
+    "close": "Close",
+    "noAccount": "Don't have an account?",
+    "moveToSignup": "Sign up here",
+    "loginError": "Invalid email or password.",
+    "signupSuccess": "Welcome! 5 tokens have been added to your account.",
+    "signupFail": "Sign up failed: "
   },
   "common": {
     "yes": "Yes",
