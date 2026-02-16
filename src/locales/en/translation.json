@@ -238,21 +238,6 @@
     "or": "OR",
     "skipForNow": "Skip for Now"
   },
-  "auth": {
-    "loginTitle": "Log In",
-    "signupTitle": "Sign Up",
-    "email": "Email",
-    "password": "Password",
-    "passwordPlaceholder": "Password (6+ chars)",
-    "loginButton": "Log In",
-    "signupButton": "Sign Up",
-    "close": "Close",
-    "noAccount": "Don't have an account?",
-    "moveToSignup": "Sign up here",
-    "loginError": "Invalid email or password.",
-    "signupSuccess": "Welcome! 5 tokens have been added to your account.",
-    "signupFail": "Sign up failed: "
-  },
   "common": {
     "yes": "Yes",
     "no": "No",
@@ -273,5 +258,52 @@
     "noFile": "Please select a file.",
     "uploadFailed": "File upload failed. Please try again.",
     "analysisFailed": "An error occurred during analysis. Please try again."
+  },
+  "auth": {
+    "loginTitle": "Log In",
+    "signupTitle": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "Password (6+ chars)",
+    "loginButton": "Log In",
+    "signupButton": "Sign Up",
+    "close": "Close",
+    "noAccount": "Don't have an account?",
+    "moveToSignup": "Sign up here",
+    "loginError": "Invalid email or password.",
+    "signupSuccess": "Welcome! 5 tokens have been added to your account.",
+    "signupFail": "Sign up failed: "
+  },
+  "mypage": {
+    "title": "My Page",
+    "token": {
+      "title": "Tokens",
+      "charge": "Top Up",
+      "history": "History"
+    },
+    "profile": {
+      "title": "Account Info",
+      "email": "Email",
+      "joinDate": "Joined",
+      "plan": "Plan",
+      "manage": "Settings"
+    },
+    "statistics": {
+      "title": "Usage Stats",
+      "analyzed": "Analyzed",
+      "risksFound": "Risks Found",
+      "tokensUsed": "Tokens Used",
+      "unit": "cases"
+    },
+    "actions": {
+      "logout": "Log Out",
+      "withdraw": "Delete Account"
+    }
+  },
+  "shop": {
+    "title": "Token Shop",
+    "starter": "Starter",
+    "pro": "Pro",
+    "business": "Business"
   }
 }
