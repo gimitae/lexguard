@@ -80,14 +80,10 @@ def build_batch_analysis_prompt(clauses: list, related_laws_per_clause: list):
 
 
 def analyze_all_clauses_batch(clauses: list, related_laws_per_clause: list):
-    """
-    모든 조항을 한 번에 GPT에게 분석 요청
-    """
     print(f"\n{'=' * 60}")
     print(f"[DEBUG] 일괄 분석 시작")
     print(f"[DEBUG] 총 조항 수: {len(clauses)}")
 
-    # 프롬프트 구성
     prompt = build_batch_analysis_prompt(clauses, related_laws_per_clause)
 
     if not prompt:
@@ -105,21 +101,29 @@ def analyze_all_clauses_batch(clauses: list, related_laws_per_clause: list):
                 {"role": "user", "content": prompt}
             ],
             temperature=0,
-            max_tokens=2000
+            max_tokens=4000  # 증가 (2000 → 4000)
         )
 
         text = response.choices[0].message.content.strip()
         print(f"[SUCCESS] GPT 응답 받음 ({len(text)} 글자)")
-        print(f"[DEBUG] 응답 내용:\n{text[:500]}...\n")
 
-        # 마크다운 코드블록 제거
+        # 디버깅: 응답 전체 출력
+        print(f"[DEBUG] 원본 응답:\n{text}\n")
+
+        # 마크다운 코드블록 제거 (개선)
+        text = text.strip()
         if text.startswith("```"):
+            # 첫 줄과 마지막 줄 제거
             lines = text.split("\n")
-            text = "\n".join(lines[1:-1]) if len(lines) > 2 else text
-            if text.startswith("json"):
-                text = text[4:]
+            if len(lines) > 2:
+                text = "\n".join(lines[1:-1])
+            # "json" 문자열 제거
+            text = text.replace("```json", "").replace("```", "")
             text = text.strip()
 
+        print(f"[DEBUG] 정리된 텍스트:\n{text[:500]}...\n")
+
+        # JSON 파싱 시도
         try:
             parsed = json.loads(text)
             print(f"[SUCCESS] JSON 파싱 성공")
@@ -128,13 +132,10 @@ def analyze_all_clauses_batch(clauses: list, related_laws_per_clause: list):
                 results = parsed["results"]
                 print(f"[DEBUG] 분석 결과: {len(results)}개")
 
-                # clause_number 검증 및 보정
+                # 필수 필드 검증 및 보정
                 for i, result in enumerate(results):
                     if "clause_number" not in result:
                         result["clause_number"] = i + 1
-                        print(f"[WARNING] 조항 {i + 1} clause_number 누락 - 자동 추가")
-
-                    # 필수 필드 검증
                     if "violation" not in result:
                         result["violation"] = False
                     if "law_reference" not in result:
@@ -147,12 +148,29 @@ def analyze_all_clauses_batch(clauses: list, related_laws_per_clause: list):
                 return results
             else:
                 print("[WARNING] 'results' 키가 없거나 리스트가 아님")
-                print(f"[DEBUG] 파싱된 구조: {parsed}")
                 return []
 
         except json.JSONDecodeError as e:
             print(f"[ERROR] JSON 파싱 실패: {str(e)}")
+            print(f"[ERROR] 위치: line {e.lineno}, column {e.colno}")
             print(f"[DEBUG] 파싱 시도한 텍스트:\n{text}\n")
+
+            # 긴급 복구: 부분 파싱 시도
+            try:
+                # JSON이 잘렸으면 마지막 완전한 객체까지만 파싱
+                last_bracket = text.rfind('}')
+                if last_bracket > 0:
+                    text_fixed = text[:last_bracket + 1]
+                    # 배열 닫기
+                    if '"results"' in text_fixed and not text_fixed.strip().endswith(']}'):
+                        text_fixed += ']}'
+
+                    parsed = json.loads(text_fixed)
+                    print("[WARNING] 부분 파싱 성공")
+                    return parsed.get("results", [])
+            except:
+                pass
+
             return []
 
     except Exception as e:

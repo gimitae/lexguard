@@ -17,11 +17,20 @@ export const FEATURE_LIST = [
   }
 ];
 
-// Risk severity levels
+// Risk severity levels (백엔드 API 응답과 호환)
 export const RISK_SEVERITY = {
+  CRITICAL: {
+    value: 'critical',
+    label: '치명적',
+    color: 'red',
+    bgClass: 'bg-red-50',
+    borderClass: 'border-red-600',
+    textClass: 'text-red-700',
+    badgeClass: 'bg-red-700'
+  },
   HIGH: {
     value: 'high',
-    label: '치명적',
+    label: '높음',
     color: 'red',
     bgClass: 'bg-red-50',
     borderClass: 'border-red-500',
@@ -39,7 +48,16 @@ export const RISK_SEVERITY = {
   },
   LOW: {
     value: 'low',
-    label: '검토',
+    label: '낮음',
+    color: 'green',
+    bgClass: 'bg-green-50',
+    borderClass: 'border-green-500',
+    textClass: 'text-green-600',
+    badgeClass: 'bg-green-600'
+  },
+  NONE: {
+    value: 'none',
+    label: '안전',
     color: 'blue',
     bgClass: 'bg-blue-50',
     borderClass: 'border-blue-500',
@@ -53,15 +71,17 @@ export const FILE_CONFIG = {
   MAX_SIZE: 20 * 1024 * 1024, // 20MB
   ALLOWED_TYPES: [
     'application/pdf',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'image/png',
+    'image/jpeg'
   ],
-  ALLOWED_EXTENSIONS: ['pdf', 'docx']
+  ALLOWED_EXTENSIONS: ['pdf', 'docx', 'png', 'jpg', 'jpeg']
 };
 
 // Error messages
 export const ERROR_MESSAGES = {
   FILE_TOO_LARGE: '파일 크기는 20MB를 초과할 수 없습니다.',
-  INVALID_FILE_TYPE: 'PDF 또는 DOCX 파일만 업로드 가능합니다.',
+  INVALID_FILE_TYPE: 'PDF, DOCX, PNG, JPG 파일만 업로드 가능합니다.',
   NO_FILE_SELECTED: '파일을 선택해주세요.',
   UPLOAD_FAILED: '파일 업로드에 실패했습니다. 다시 시도해주세요.',
   ANALYSIS_FAILED: '분석 중 오류가 발생했습니다. 다시 시도해주세요.'
@@ -72,7 +92,7 @@ export const UI_TEXT = {
   LANDING_TITLE: '계약서 리스크를',
   LANDING_TITLE_HIGHLIGHT: '3분 안에 찾으세요',
   LANDING_SUBTITLE: '회원가입 없이 파일을 업로드하여 인공지능의 리스크 분석 결과를 즉시 확인하세요.',
-  UPLOAD_TITLE: 'PDF 또는 Word 파일을 드래그하세요',
+  UPLOAD_TITLE: 'PDF, Word 또는 이미지 파일을 드래그하세요',
   UPLOAD_SUBTITLE: '최대 20MB까지 업로드 가능',
   UPLOAD_BUTTON: '내 컴퓨터에서 파일 찾기'
 };

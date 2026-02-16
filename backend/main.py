@@ -1,10 +1,17 @@
+"""
+LexGuard 백엔드 API
+FastAPI 기반 계약서 분석 서버 (OCR + AI 분석)
+"""
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, FileResponse
+from pydantic import BaseModel
+from typing import List, Optional
 from dotenv import load_dotenv
 import os
 import io
 
+# 기존 강력한 분석 도구들
 from utils.ocr_service import run_ocr
 from utils.analyze_contract import split_clauses
 from utils.rag_retriever import retrieve_related_laws
@@ -13,12 +20,16 @@ from utils.pdf_highlighter import highlight_pdf, create_highlighted_pdf_with_tex
 
 load_dotenv()
 
-app = FastAPI(title="LexGuard API")
+app = FastAPI(
+    title="LexGuard API",
+    description="AI 기반 계약서 리스크 분석 API (OCR + GPT)",
+    version="3.0.0"
+)
 
 # CORS 설정
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["http://localhost:5174", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -33,41 +44,73 @@ last_analysis = {
 }
 
 
+# ============================================
+# 데이터 모델
+# ============================================
+
+class RiskDetail(BaseModel):
+    id: str
+    severity: str
+    title: str
+    description: str
+    legalBasis: str
+    suggestion: str
+    position: Optional[dict] = None
+
+
+class AnalysisResult(BaseModel):
+    success: bool
+    total_clauses: int
+    analysis: List[dict]
+    raw_text: Optional[str] = None
+    metadata: Optional[dict] = None
+
+
+# ============================================
+# 헬스체크 & 상태 확인
+# ============================================
+
 @app.get("/")
 def read_root():
-    return {"message": "LexGuard API is running"}
-
-
-def calculate_risk_score(analysis_results):
-    """
-    분석 결과에서 위험도 점수 계산 (간단 버전)
-    severity 기반으로 점수 산출
-    """
-    severity_weights = {
-        "CRITICAL": 100,
-        "HIGH": 75,
-        "MEDIUM": 50,
-        "LOW": 25,
-        "NONE": 0
+    """API 상태 확인"""
+    return {
+        "status": "ok",
+        "message": "LexGuard API 서버가 정상 작동 중입니다",
+        "version": "3.0.0",
+        "features": {
+            "ocr": True,
+            "gptAnalysis": True,
+            "pdfHighlight": True,
+            "templateDownload": True
+        }
     }
 
-    if not analysis_results:
-        return 0
 
-    total_score = sum(
-        severity_weights.get(result.get("severity", "NONE"), 0)
-        for result in analysis_results
-    )
+@app.get("/health")
+def health_check():
+    """서버 상태 체크"""
+    openai_key = os.getenv("OPENAI_API_KEY")
+    return {
+        "status": "healthy",
+        "openai_configured": bool(openai_key),
+        "ocr_available": True,
+        "pdf_tools_available": True
+    }
 
-    # 평균 점수 (0-100)
-    avg_score = total_score / len(analysis_results)
-    return round(avg_score, 1)
 
+# ============================================
+# 메인 분석 엔드포인트
+# ============================================
 
 @app.post("/api/analyze")
 async def analyze_document(file: UploadFile = File(...), lang: str = "ko"):
     """
     계약서 OCR + AI 분석 (통합 버전)
+
+    - OCR로 텍스트 추출 (PDF, DOCX, 이미지)
+    - 조항 자동 분리
+    - 관련 법률 검색
+    - GPT 기반 위험도 분석
     """
     try:
         print(f"\n{'=' * 80}")
@@ -89,6 +132,13 @@ async def analyze_document(file: UploadFile = File(...), lang: str = "ko"):
             raise HTTPException(
                 status_code=400,
                 detail="PDF, DOCX, PNG, JPG 파일만 업로드 가능합니다."
+            )
+
+        file_size = len(file_contents)
+        if file_size > 20 * 1024 * 1024:
+            raise HTTPException(
+                status_code=400,
+                detail="파일 크기는 20MB를 초과할 수 없습니다."
             )
 
         # 2. OCR 수행
@@ -142,11 +192,6 @@ async def analyze_document(file: UploadFile = File(...), lang: str = "ko"):
             analysis["clause"] = clause
             results.append(analysis)
 
-        # 7. 위험도 계산 (간단 버전)
-        print("\n[STEP 5] 위험도 계산")
-        risk_score = calculate_risk_score(results)
-        print(f"[RESULT] 최종 위험도: {risk_score}")
-
         # 전역 변수에 저장 (하이라이트용)
         last_analysis["original_file"] = file_contents
         last_analysis["results"] = results
@@ -160,10 +205,15 @@ async def analyze_document(file: UploadFile = File(...), lang: str = "ko"):
         # JSON 응답 반환
         return {
             "success": True,
-            "risk_score": risk_score,
             "total_clauses": len(clauses),
             "analysis": results,
-            "raw_text": raw_text[:500]  # 미리보기용
+            "raw_text": raw_text[:500],  # 미리보기용
+            "metadata": {
+                "filename": file.filename,
+                "fileSize": file_size,
+                "textLength": len(raw_text),
+                "clauseCount": len(clauses)
+            }
         }
 
     except HTTPException:
@@ -178,10 +228,17 @@ async def analyze_document(file: UploadFile = File(...), lang: str = "ko"):
         )
 
 
+# ============================================
+# PDF 하이라이트 다운로드
+# ============================================
+
 @app.get("/api/download-highlighted-pdf")
 async def download_highlighted_pdf():
     """
     분석 결과가 하이라이트된 PDF 다운로드
+    - 위험 조항: 빨간색
+    - 주의 조항: 노란색
+    - 안전 조항: 초록색
     """
     try:
         if not last_analysis.get("results"):
@@ -237,10 +294,15 @@ async def download_highlighted_pdf():
         )
 
 
+# ============================================
+# 표준 근로계약서 다운로드
+# ============================================
+
 @app.get("/api/download-template")
 async def download_template():
     """
     표준 근로계약서 양식 다운로드
+    - 고용노동부 표준 양식
     """
     try:
         # templates 폴더에서 표준 근로계약서 제공
@@ -270,16 +332,61 @@ async def download_template():
         )
 
 
-@app.get("/health")
-def health_check():
-    """서버 상태 체크"""
-    openai_key = os.getenv("OPENAI_API_KEY")
+# ============================================
+# 추가 유틸리티 엔드포인트
+# ============================================
+
+@app.get("/api/templates")
+def get_templates():
+    """계약서 템플릿 목록"""
     return {
-        "status": "healthy",
-        "openai_configured": bool(openai_key)
+        "templates": [
+            {"id": "employment", "name": "근로계약서", "category": "노동"},
+            {"id": "nda", "name": "비밀유지계약서", "category": "일반"},
+            {"id": "service", "name": "용역계약서", "category": "일반"}
+        ]
     }
 
 
+@app.get("/api/statistics")
+def get_statistics():
+    """서비스 통계 (데모)"""
+    return {
+        "totalAnalyses": 1234,
+        "averageRisks": 2.5,
+        "mostCommonRisk": "부당해고 조항",
+        "averageProcessingTime": "3.2s"
+    }
+
+
+@app.post("/api/extract-text")
+async def extract_text_only(file: UploadFile = File(...), lang: str = "ko"):
+    """
+    파일에서 텍스트만 추출 (디버깅용)
+    """
+    try:
+        raw_text = await run_ocr(file, lang_code=lang)
+
+        return {
+            "success": True,
+            "filename": file.filename,
+            "text": raw_text,
+            "length": len(raw_text),
+            "preview": raw_text[:500] + "..." if len(raw_text) > 500 else raw_text
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ============================================
+# 서버 실행
+# ============================================
+
 if __name__ == "__main__":
     import uvicorn
+
+    print("LexGuard 백엔드 서버 시작...")
+    print(f" OCR: 활성화")
+    print(f" GPT 분석: 활성화")
+    print(f"PDF 하이라이트: 활성화")
     uvicorn.run(app, host="0.0.0.0", port=8000)
