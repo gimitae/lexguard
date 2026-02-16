@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # 환경변수 (절대 올리지 않음)
-.env
+backend/.env
 *.env
 .env.local
 .env.production
