@@ -1,0 +1,267 @@
+{
+  "header": {
+    "logo": "Barungyeyak",
+    "menu": {
+      "consultation": "Expert Consultation",
+      "terms": "Terms of Service",
+      "support": "Support"
+    },
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "landing": {
+    "hero": {
+      "title": "Find Contract Risks",
+      "titleHighlight": "in 3 Minutes",
+      "subtitle1": "Upload your file without signing up",
+      "subtitle2": "and instantly receive AI-powered risk analysis results.",
+      "securityBadge": "All documents are encrypted and destroyed immediately after analysis."
+    },
+    "upload": {
+      "title": "Drag and drop your PDF, Word, or Image file",
+      "subtitle": "Maximum file size: 20MB",
+      "button": "Browse Files",
+      "choose": "Choose File"
+    },
+    "features": {
+      "title": "Expert-Verified",
+      "titleBold": "Accurate Revision Guide",
+      "list": [
+        "Instant Red Flag Identification",
+        "Legal Basis with Case Law Data",
+        "One-Click Alternative Clause Copy"
+      ]
+    },
+    "lawfirms": {
+      "title": "Need 1-on-1 Expert Consultation?",
+      "subtitle1": "Verified legal experts will review your contract directly",
+      "subtitle2": "and provide tailored solutions.",
+      "cta": "Request Expert Consultation",
+      "stats": {
+        "lawyers": "Partner Lawyers",
+        "lawyersCount": "120+",
+        "lawyersDesc": "Experts in labor law, contract law, civil litigation, and more",
+        "rating": "Average Rating",
+        "ratingScore": "4.9",
+        "ratingDesc": "Based on 1,000+ real customer reviews",
+        "resolution": "Resolution Rate",
+        "resolutionRate": "95%",
+        "resolutionDesc": "Most cases resolved amicably through negotiation"
+      },
+      "consultationNote": "First 30 minutes free • Average response time: 2 hours"
+    },
+    "trusted": {
+      "label": "TRUSTED BY",
+      "companies": [
+        "LAW-TECH",
+        "SECURE_LABS",
+        "CORP_LEGAL"
+      ]
+    },
+    "howItWorks": {
+      "title": "Get Started in 3 Simple Steps",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Upload Contract",
+          "description": "Drag and drop your PDF, Word, or Image file to upload"
+        },
+        {
+          "number": "2",
+          "title": "Review AI Analysis",
+          "description": "Check risks and recommended revisions within 3 minutes"
+        },
+        {
+          "number": "3",
+          "title": "Expert Consultation",
+          "description": "Proceed with 1-on-1 consultation with verified lawyers if needed"
+        }
+      ]
+    },
+    "preview": {
+      "label": "ANALYSIS PREVIEW"
+    }
+  },
+  "analysis": {
+    "loading": {
+      "title": "AI engine is analyzing legal risks",
+      "steps": {
+        "scanning": "Scanning contract...",
+        "comparing": "Comparing with case law database...",
+        "complete": "Risk analysis complete"
+      },
+      "wait": "Please wait..."
+    },
+    "preview": {
+      "title": "Analysis Complete!",
+      "description": "Found {{critical}} critical risks and {{warning}} warning clauses.",
+      "cta": "View Results for Free"
+    },
+    "result": {
+      "critical": "Critical",
+      "warning": "Warning",
+      "download": "Download Modified Contract (.docx)"
+    }
+  },
+  "lawfirms": {
+    "title": "Professional Legal Consultation",
+    "subtitle": "Get 1-on-1 consultation with expert lawyers based on your contract analysis results",
+    "search": "Search law firm name or practice area...",
+    "filters": {
+      "all": "All",
+      "labor": "Labor Law",
+      "contract": "Contract Law",
+      "civil": "Civil Litigation"
+    },
+    "consultation": "Request Consultation",
+    "consultationFee": "Fee",
+    "consultationAlert": "Consultation request with {{firmName}} will be available soon.",
+    "stats": {
+      "experience": "Experience",
+      "cases": "Cases",
+      "casesUnit": " cases",
+      "location": "Location",
+      "responseTime": "Response Time"
+    },
+    "cta": {
+      "title": "Can't find the right expert?",
+      "description": "We'll recommend the best legal expert suited to your situation",
+      "button": "Get Personalized Recommendation"
+    }
+  },
+  "support": {
+    "title": "Customer Support",
+    "subtitle": "How can we help you? Feel free to contact us anytime.",
+    "form": {
+      "title": "Contact Us",
+      "name": "Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "example@email.com",
+      "category": "Category",
+      "message": "Message",
+      "messagePlaceholder": "Please enter your inquiry...",
+      "submit": "Submit",
+      "successMessage": "Your inquiry has been submitted. We will respond shortly."
+    },
+    "categories": {
+      "general": "General Inquiry",
+      "technical": "Technical Support",
+      "billing": "Billing/Refund",
+      "partnership": "Partnership"
+    },
+    "contact": {
+      "email": {
+        "title": "Email",
+        "value": "support@lexguard.com",
+        "time": "Response within 24 hours"
+      },
+      "kakao": {
+        "title": "KakaoTalk",
+        "value": "@lexguard",
+        "time": "Weekdays 09:00 - 18:00"
+      },
+      "phone": {
+        "title": "Phone",
+        "value": "1588-0000",
+        "time": "Weekdays 09:00 - 18:00"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekday": "Weekdays: 09:00 - 18:00",
+        "weekend": "Weekends & Holidays: Closed"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How accurate is the contract analysis?",
+          "answer": "Our AI model has learned from thousands of case laws and legal data to detect risks with over 95% accuracy."
+        },
+        {
+          "question": "Is my uploaded contract safe?",
+          "answer": "All documents are immediately encrypted and destroyed after analysis."
+        }
+      ]
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last Updated: January 1, 2026",
+    "sections": {
+      "article1": {
+        "title": "Article 1 (Purpose)",
+        "content": "Terms regarding the AI-based contract analysis service provided by LexGuard."
+      }
+    }
+  },
+  "auth": {
+    "loginTitle": "Log In",
+    "signupTitle": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "Password (6+ chars)",
+    "loginButton": "Log In",
+    "signupButton": "Sign Up",
+    "close": "Close",
+    "noAccount": "Don't have an account?",
+    "moveToSignup": "Sign up here",
+    "loginError": "Invalid email or password.",
+    "signupSuccess": "Welcome! 5 tokens have been added to your account.",
+    "signupFail": "Sign up failed: "
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "errors": {
+    "fileTooBig": "File size cannot exceed 20MB.",
+    "invalidFileType": "Only PDF, DOCX, or Image files are allowed.",
+    "noFile": "Please select a file.",
+    "uploadFailed": "File upload failed. Please try again.",
+    "analysisFailed": "An error occurred during analysis. Please try again."
+  },
+  "mypage": {
+    "title": "My Page",
+    "token": {
+      "title": "Available Tokens",
+      "charge": "Top Up",
+      "history": "Usage History"
+    },
+    "profile": {
+      "title": "Account Info",
+      "email": "Email Address",
+      "joinDate": "Joined",
+      "plan": "Current Plan",
+      "manage": "Settings"
+    },
+    "statistics": {
+      "title": "Usage Statistics",
+      "analyzed": "Analyses Completed",
+      "risksFound": "Risks Detected",
+      "tokensUsed": "Tokens Used",
+      "unit": "case(s)"
+    },
+    "actions": {
+      "logout": "Log Out",
+      "withdraw": "Delete Account"
+    }
+  },
+  "shop": {
+    "title": "Token Shop",
+    "starter": "Starter",
+    "pro": "Pro",
+    "business": "Business"
+  }
+}
