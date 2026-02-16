@@ -18,5 +18,7 @@ src/locales/en/translation.json (영어 번역에 "auth" 추가)
 
 package.json & package-lock.json (firebase 라이브러리 설치로 인해 변경됨)
 
+src/views/SupportView.jsx(고객지원 파베랑 연결됨)
+
 
 파베 작동 잘됨 ㅇㅇ 파베도 관리자 추가가 가능한가?
