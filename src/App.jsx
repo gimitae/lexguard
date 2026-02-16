@@ -189,7 +189,11 @@ const App = () => {
           <LandingPage onFileUpload={handleFileUpload} />
         )}
         
-        {currentView === 'lawfirms' && <LawFirmsView />}
+        {currentView === 'lawfirms' && (
+  <LawFirmsView 
+    onAuth={() => navigateTo('login')} 
+  />
+)}
         {currentView === 'terms' && <TermsView />}
         {currentView === 'support' && <SupportView />}
         
