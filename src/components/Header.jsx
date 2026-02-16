@@ -17,11 +17,10 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
 
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
-      {/* Logo */}
+      {/* 로고 */}
       <button 
         onClick={() => onNavigate('landing')}
         className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity group"
-        aria-label="홈으로 이동"
       >
         <div className="bg-indigo-600 p-1 rounded-lg group-hover:scale-110 transition-transform duration-300">
           <Scale className="text-white w-5 h-5" />
@@ -31,7 +30,7 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
         </span>
       </button>
 
-      {/* Center Menu */}
+      {/* 중앙 메뉴 (데스크탑) */}
       <div className="hidden md:flex items-center gap-2">
         {menuItems.map((item) => (
           <button
@@ -46,23 +45,20 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
             `}
           >
             {item.label}
-            {isActive(item.id) && (
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-indigo-600 rounded-t-full animate-slide-up" />
-            )}
           </button>
         ))}
       </div>
 
-      {/* Right Side */}
+      {/* 오른쪽 메뉴 */}
       <div className="flex items-center gap-4">
-        {/* Language Switcher */}
         <LanguageSwitcher />
 
         {isLoggedIn ? (
+          /* 로그인 상태일 때 */
           <div className="flex items-center gap-4">
             <div 
-              className="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 border border-slate-200 hover:border-amber-300 transition-all duration-300 group"
-              title="분석 1회당 토큰 1개 사용"
+              className="bg-slate-100 px-3 py-1.5 rounded-full flex items-center gap-2 border border-slate-200 group"
+              title="보유 토큰"
             >
               <Coins className="w-3 h-3 text-amber-500 fill-amber-500 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-black text-slate-700">{tokens}</span>
@@ -70,87 +66,32 @@ const Header = ({ isLoggedIn, tokens, onLogout, onNavigate, currentView }) => {
             <button 
               onClick={onLogout}
               className="text-slate-400 hover:text-red-500 transition-colors hover:scale-110 duration-300"
-              aria-label={t('header.logout')}
+              title={t('header.logout')}
             >
               <LogOut className="w-4 h-4" />
             </button>
           </div>
         ) : (
-          <>
-            {/* Mobile Menu */}
-            <div className="md:hidden relative">
-              <button
-                onClick={() => setShowMenu(!showMenu)}
-                className="text-slate-600 hover:text-slate-900 transition-colors"
-              >
-                <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${showMenu ? 'rotate-180' : ''}`} />
-              </button>
-              
-              {showMenu && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-slate-200 py-2 animate-fade-in-down">
-                  {menuItems.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => { 
-                        onNavigate(item.id); 
-                        setShowMenu(false); 
-                      }}
-                      className={`
-                        block w-full text-left px-4 py-2 text-sm font-bold transition-colors
-                        ${isActive(item.id)
-                          ? 'text-indigo-600 bg-indigo-50'
-                          : 'text-slate-600 hover:bg-slate-50'
-                        }
-                      `}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            
+          /* 비로그인 상태일 때 */
+          <div className="flex items-center gap-2">
+            {/* ✨ 1. 회원가입 버튼 (번역 적용) */}
             <button 
               onClick={() => onNavigate('signup')}
-              className="text-sm font-bold text-slate-900 px-4 py-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-all hover:scale-105 duration-300"
+              className="hidden md:block text-sm font-bold text-slate-500 hover:text-indigo-600 px-3 py-2 transition-colors"
             >
-              {t('header.login')}
+              {t('auth.signupTitle')}
             </button>
-          </>
+
+            {/* ✨ 2. 로그인 버튼 (번역 적용) */}
+            <button 
+              onClick={() => onNavigate('login')}
+              className="text-sm font-bold text-white bg-indigo-600 px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-all hover:scale-105 shadow-md shadow-indigo-200"
+            >
+              {t('auth.loginTitle')}
+            </button>
+          </div>
         )}
       </div>
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-          }
-        }
-        
-        @keyframes fade-in-down {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-slide-up {
-          animation: slide-up 0.3s ease-out;
-        }
-        
-        .animate-fade-in-down {
-          animation: fade-in-down 0.2s ease-out;
-        }
-      `}} />
     </nav>
   );
 };
