@@ -4,8 +4,13 @@ import FileUploadZone from '../components/FileUploadZone';
 import { FEATURE_LIST } from '../constants';
 import { useTranslation } from 'react-i18next';
 
+<<<<<<< HEAD
 // ✨ onNavigate prop 추가됨
 const LandingPage = ({ onFileUpload, onNavigate }) => {
+=======
+
+const LandingPage = ({ onFileUpload }) => {
+>>>>>>> origin/mypage
   
   const { t } = useTranslation();
 
@@ -146,9 +151,14 @@ const LandingPage = ({ onFileUpload, onNavigate }) => {
           </div>
 
           <div className="text-center">
+<<<<<<< HEAD
             {/* ✨ [수정됨] 클릭 시 상담 페이지(lawfirms)로 이동 */}
             <button
               onClick={() => onNavigate('lawfirms')}
+=======
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+>>>>>>> origin/mypage
               className="inline-flex items-center gap-3 px-8 py-4 bg-white text-indigo-600 rounded-2xl font-black text-lg hover:bg-indigo-50 transition-all shadow-2xl active:scale-95"
             >
               {t('landing.lawfirms.cta')}
@@ -187,4 +197,8 @@ const LandingPage = ({ onFileUpload, onNavigate }) => {
   );
 };
 
+<<<<<<< HEAD
 export default LandingPage;
+=======
+export default LandingPage;
+>>>>>>> origin/mypage

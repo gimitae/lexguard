@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Mail, MessageCircle, Phone, Clock, Send, HelpCircle, MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -5,6 +6,11 @@ import { useTranslation } from 'react-i18next';
 import { db, auth } from '../firebase';
 import { collection, addDoc, serverTimestamp, query, where, orderBy, onSnapshot } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
+=======
+import React, { useState } from 'react';
+import { Mail, MessageCircle, Phone, Clock, Send, HelpCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+>>>>>>> origin/mypage
 
 const SupportView = () => {
   const { t } = useTranslation();
@@ -16,6 +22,7 @@ const SupportView = () => {
     message: ''
   });
 
+<<<<<<< HEAD
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [myInquiries, setMyInquiries] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
@@ -95,6 +102,16 @@ const SupportView = () => {
   };
 
   const faqs = t('support.faq.items', { returnObjects: true }) || [];
+=======
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: 백엔드 연결 시 구현
+    alert(t('support.form.successMessage'));
+    setFormData({ name: '', email: '', category: 'general', message: '' });
+  };
+
+  const faqs = t('support.faq.items', { returnObjects: true });
+>>>>>>> origin/mypage
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -102,11 +119,18 @@ const SupportView = () => {
       <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white py-16 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-black mb-4">{t('support.title')}</h1>
+<<<<<<< HEAD
           <p className="text-indigo-100 text-lg">{t('support.subtitle')}</p>
+=======
+          <p className="text-indigo-100 text-lg">
+            {t('support.subtitle')}
+          </p>
+>>>>>>> origin/mypage
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-12">
+<<<<<<< HEAD
         
         {/* 나의 문의 내역 */}
         {currentUser && (
@@ -205,22 +229,91 @@ const SupportView = () => {
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-2">{t('support.form.category')}</label>
                 <select value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none bg-slate-50 focus:bg-white">
+=======
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {/* Contact Form */}
+          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl">
+            <h2 className="text-2xl font-black text-slate-900 mb-6">{t('support.form.title')}</h2>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-2">
+                  {t('support.form.name')}
+                </label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none"
+                  placeholder={t('support.form.namePlaceholder')}
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-2">
+                  {t('support.form.email')}
+                </label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none"
+                  placeholder={t('support.form.emailPlaceholder')}
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-2">
+                  {t('support.form.category')}
+                </label>
+                <select
+                  value={formData.category}
+                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none"
+                >
+>>>>>>> origin/mypage
                   <option value="general">{t('support.categories.general')}</option>
                   <option value="technical">{t('support.categories.technical')}</option>
                   <option value="billing">{t('support.categories.billing')}</option>
                   <option value="partnership">{t('support.categories.partnership')}</option>
                 </select>
               </div>
+<<<<<<< HEAD
               <div className="flex-1">
                 <label className="block text-sm font-bold text-slate-700 mb-2">{t('support.form.message')}</label>
                 <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full h-full min-h-[160px] px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none bg-slate-50 focus:bg-white resize-none" required />
               </div>
               <button type="submit" disabled={isSubmitting} className={`w-full py-4 mt-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-50' : ''}`}>
                 <Send className="w-5 h-5" /> {isSubmitting ? '전송 중...' : t('support.form.submit')}
+=======
+
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-2">
+                  {t('support.form.message')}
+                </label>
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none h-32"
+                  placeholder={t('support.form.messagePlaceholder')}
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg flex items-center justify-center gap-2 active:scale-95"
+              >
+                <Send className="w-5 h-5" />
+                {t('support.form.submit')}
+>>>>>>> origin/mypage
               </button>
             </form>
           </div>
 
+<<<<<<< HEAD
           {/* 우측: 정보 */}
           <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl h-full flex flex-col justify-between">
             <div>
@@ -261,10 +354,24 @@ const SupportView = () => {
                     <p className="text-slate-600 text-lg font-medium">{t('support.contact.phone.value')}</p>
                     <p className="text-sm text-slate-400 mt-1">{t('support.contact.phone.time')}</p>
                   </div>
+=======
+          {/* Contact Info */}
+          <div className="space-y-6">
+            <div className="bg-white rounded-3xl p-8 border border-slate-200">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-indigo-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-slate-900 mb-2">{t('support.contact.email.title')}</h3>
+                  <p className="text-slate-600">{t('support.contact.email.value')}</p>
+                  <p className="text-sm text-slate-400 mt-1">{t('support.contact.email.time')}</p>
+>>>>>>> origin/mypage
                 </div>
               </div>
             </div>
 
+<<<<<<< HEAD
             <div className="mt-8 bg-slate-50 rounded-2xl p-6 border border-slate-100">
                <div className="flex items-start gap-4">
                   <Clock className="w-6 h-6 text-indigo-600 flex-shrink-0 mt-1" />
@@ -276,6 +383,43 @@ const SupportView = () => {
                     </div>
                   </div>
                </div>
+=======
+            <div className="bg-white rounded-3xl p-8 border border-slate-200">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="w-6 h-6 text-emerald-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-slate-900 mb-2">{t('support.contact.kakao.title')}</h3>
+                  <p className="text-slate-600">{t('support.contact.kakao.value')}</p>
+                  <p className="text-sm text-slate-400 mt-1">{t('support.contact.kakao.time')}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 border border-slate-200">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-amber-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-slate-900 mb-2">{t('support.contact.phone.title')}</h3>
+                  <p className="text-slate-600">{t('support.contact.phone.value')}</p>
+                  <p className="text-sm text-slate-400 mt-1">{t('support.contact.phone.time')}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-3xl p-8 border border-indigo-100">
+              <div className="flex items-start gap-4">
+                <Clock className="w-6 h-6 text-indigo-600 flex-shrink-0" />
+                <div>
+                  <h3 className="text-lg font-black text-slate-900 mb-2">{t('support.contact.hours.title')}</h3>
+                  <p className="text-slate-600 text-sm">{t('support.contact.hours.weekday')}</p>
+                  <p className="text-slate-600 text-sm">{t('support.contact.hours.weekend')}</p>
+                </div>
+              </div>
+>>>>>>> origin/mypage
             </div>
           </div>
         </div>
@@ -286,6 +430,7 @@ const SupportView = () => {
             <HelpCircle className="w-8 h-8 text-indigo-600" />
             <h2 className="text-3xl font-black text-slate-900">{t('support.faq.title')}</h2>
           </div>
+<<<<<<< HEAD
           <div className="space-y-4">
             {Array.isArray(faqs) && faqs.map((faq, index) => (
               <div key={index} className="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:bg-slate-100 transition-colors">
@@ -294,6 +439,20 @@ const SupportView = () => {
                   {faq.question}
                 </h3>
                 <p className="text-slate-600 leading-relaxed pl-7">
+=======
+
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="p-6 bg-slate-50 rounded-2xl border border-slate-200"
+              >
+                <h3 className="font-black text-slate-900 mb-3 flex items-start gap-2">
+                  <span className="text-indigo-600">Q.</span>
+                  {faq.question}
+                </h3>
+                <p className="text-slate-600 leading-relaxed pl-6">
+>>>>>>> origin/mypage
                   {faq.answer}
                 </p>
               </div>
@@ -305,4 +464,8 @@ const SupportView = () => {
   );
 };
 
+<<<<<<< HEAD
 export default SupportView;
+=======
+export default SupportView;
+>>>>>>> origin/mypage

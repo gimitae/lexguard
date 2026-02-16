@@ -1,6 +1,10 @@
 {
   "header": {
+<<<<<<< HEAD
     "logo": "LexGuard",
+=======
+    "logo": "Barungyeyak",
+>>>>>>> origin/mypage
     "menu": {
       "consultation": "Expert Consultation",
       "terms": "Terms of Service",
@@ -238,6 +242,24 @@
     "or": "OR",
     "skipForNow": "Skip for Now"
   },
+<<<<<<< HEAD
+=======
+  "auth": {
+    "loginTitle": "Log In",
+    "signupTitle": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "Password (6+ chars)",
+    "loginButton": "Log In",
+    "signupButton": "Sign Up",
+    "close": "Close",
+    "noAccount": "Don't have an account?",
+    "moveToSignup": "Sign up here",
+    "loginError": "Invalid email or password.",
+    "signupSuccess": "Welcome! 5 tokens have been added to your account.",
+    "signupFail": "Sign up failed: "
+  },
+>>>>>>> origin/mypage
   "common": {
     "yes": "Yes",
     "no": "No",
@@ -259,6 +281,7 @@
     "uploadFailed": "File upload failed. Please try again.",
     "analysisFailed": "An error occurred during analysis. Please try again."
   },
+<<<<<<< HEAD
   "auth": {
     "loginTitle": "Log In",
     "signupTitle": "Sign Up",
@@ -294,16 +317,41 @@
       "risksFound": "Risks Found",
       "tokensUsed": "Tokens Used",
       "unit": "cases"
+=======
+  "mypage": {
+    "title": "My Page",
+    "token": {
+      "title": "Available Tokens",
+      "charge": "Top Up",
+      "history": "Token Usage History"
+    },
+    "profile": {
+      "title": "Account Information",
+      "email": "Email Address",
+      "joinDate": "Joined Date",
+      "plan": "Current Plan",
+      "manage": "Account Settings"
+    },
+    "statistics": {
+      "title": "Usage Statistics",
+      "analyzed": "Analyses Completed",
+      "risksFound": "Risks Detected",
+      "tokensUsed": "Tokens Used",
+      "unit": "case(s)"
+>>>>>>> origin/mypage
     },
     "actions": {
       "logout": "Log Out",
       "withdraw": "Delete Account"
     }
+<<<<<<< HEAD
   },
   "shop": {
     "title": "Token Shop",
     "starter": "Starter",
     "pro": "Pro",
     "business": "Business"
+=======
+>>>>>>> origin/mypage
   }
 }

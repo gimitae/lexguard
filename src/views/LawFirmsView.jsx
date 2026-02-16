@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Star, MapPin, Briefcase, Award, MessageCircle, Filter, Search, X, FileText, Send, CheckCircle, User, Lock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -70,6 +71,18 @@ const LawFirmsView = ({ onAuth }) => {
   };
 
   // 더미 데이터
+=======
+import React, { useState } from 'react';
+import { Star, MapPin, Briefcase, Award, MessageCircle, Filter, Search } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+const LawFirmsView = () => {
+  const { t } = useTranslation();
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // 더미 데이터 (나중에 백엔드에서 받아올 예정)
+>>>>>>> origin/mypage
   const lawFirms = [
     {
       id: 1,
@@ -125,6 +138,7 @@ const LawFirmsView = ({ onAuth }) => {
     }
   ];
 
+<<<<<<< HEAD
   // ✨ [추가됨] 필터링 로직 구현
   const filteredFirms = lawFirms.filter((firm) => {
     // 1. 카테고리 필터 (선택한 카테고리가 'all'이거나, 로펌 전문분야에 포함되어 있는지)
@@ -142,6 +156,8 @@ const LawFirmsView = ({ onAuth }) => {
     return matchesCategory && matchesSearch;
   });
 
+=======
+>>>>>>> origin/mypage
   const categories = [
     { id: 'all', label: t('lawfirms.filters.all') },
     { id: 'labor', label: t('lawfirms.filters.labor') },
@@ -149,8 +165,18 @@ const LawFirmsView = ({ onAuth }) => {
     { id: 'civil', label: t('lawfirms.filters.civil') }
   ];
 
+<<<<<<< HEAD
   return (
     <div className="min-h-screen bg-slate-50 relative">
+=======
+  const handleConsultation = (firmName) => {
+    // TODO: 백엔드 연결 시 구현
+    alert(t('lawfirms.consultationAlert', { firmName }));
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50">
+>>>>>>> origin/mypage
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white py-16 px-6">
         <div className="max-w-6xl mx-auto">
@@ -195,6 +221,7 @@ const LawFirmsView = ({ onAuth }) => {
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* Law Firms Grid (필터링된 목록 보여주기) */}
         <div className="grid md:grid-cols-2 gap-6">
           {filteredFirms.length > 0 ? (
@@ -208,10 +235,28 @@ const LawFirmsView = ({ onAuth }) => {
                   <div>
                     <h3 className="text-2xl font-black text-slate-900 mb-2">{firm.name}</h3>
                     <div className="flex items-center gap-2 mb-3">
+=======
+        {/* Law Firms Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {lawFirms.map((firm) => (
+            <div
+              key={firm.id}
+              className="bg-white rounded-3xl p-8 border border-slate-200 hover:shadow-2xl hover:border-indigo-200 transition-all"
+            >
+              {/* Header */}
+              <div className="flex items-start justify-between mb-6">
+                <div>
+                  <h3 className="text-2xl font-black text-slate-900 mb-2">
+                    {firm.name}
+                  </h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex items-center gap-1">
+>>>>>>> origin/mypage
                       <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
                       <span className="font-bold text-slate-900">{firm.rating}</span>
                       <span className="text-sm text-slate-400">({firm.reviewCount})</span>
                     </div>
+<<<<<<< HEAD
                     <div className="flex flex-wrap gap-2">
                       {firm.specialty.map((spec, idx) => (
                         <span key={idx} className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-xs font-bold">{spec}</span>
@@ -276,6 +321,75 @@ const LawFirmsView = ({ onAuth }) => {
               검색 결과가 없습니다.
             </div>
           )}
+=======
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {firm.specialty.map((spec, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-xs font-bold"
+                      >
+                        {spec}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-slate-600 mb-6 leading-relaxed">
+                {firm.description}
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100">
+                <div className="flex items-center gap-2">
+                  <Briefcase className="w-4 h-4 text-indigo-600" />
+                  <div>
+                    <p className="text-xs text-slate-400">{t('lawfirms.stats.experience')}</p>
+                    <p className="font-bold text-slate-900">{firm.experience}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-indigo-600" />
+                  <div>
+                    <p className="text-xs text-slate-400">{t('lawfirms.stats.cases')}</p>
+                    <p className="font-bold text-slate-900">{firm.cases}{t('lawfirms.stats.casesUnit')}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-indigo-600" />
+                  <div>
+                    <p className="text-xs text-slate-400">{t('lawfirms.stats.location')}</p>
+                    <p className="font-bold text-slate-900">{firm.location}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4 text-indigo-600" />
+                  <div>
+                    <p className="text-xs text-slate-400">{t('lawfirms.stats.responseTime')}</p>
+                    <p className="font-bold text-slate-900">{firm.responseTime}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs text-slate-400">{t('lawfirms.consultationFee')}</p>
+                  <p className="text-lg font-black text-emerald-600">{firm.consultationFee}</p>
+                </div>
+                <button
+                  onClick={() => handleConsultation(firm.name)}
+                  className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg flex items-center gap-2 active:scale-95"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  {t('lawfirms.consultation')}
+                </button>
+              </div>
+            </div>
+          ))}
+>>>>>>> origin/mypage
         </div>
 
         {/* CTA Bottom */}
@@ -291,6 +405,7 @@ const LawFirmsView = ({ onAuth }) => {
           </button>
         </div>
       </div>
+<<<<<<< HEAD
 
       {/* 상담 신청 모달 */}
       {isModalOpen && (
@@ -385,8 +500,14 @@ const LawFirmsView = ({ onAuth }) => {
         </div>
       )}
 
+=======
+>>>>>>> origin/mypage
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default LawFirmsView;
+=======
+export default LawFirmsView;
+>>>>>>> origin/mypage
