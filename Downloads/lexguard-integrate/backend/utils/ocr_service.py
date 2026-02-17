@@ -1,197 +1,301 @@
-# services/ocr_service.py
-from paddleocr import PaddleOCR
-import numpy as np
-import cv2
 import io
-from PIL import Image
+import os
+import cv2
+import numpy as np
+from paddleocr import PaddleOCR
 
-# PDF 처리용
-try:
-    import fitz  # PyMuPDF
-
-    HAS_FITZ = True
-except ImportError:
-    HAS_FITZ = False
-
-# DOCX 처리용
-try:
-    from docx import Document
-
-    HAS_DOCX = True
-except ImportError:
-    HAS_DOCX = False
-
-OCR_MODELS = {}
-
-LANG_MAP = {
-    "ko": "korean",
-    "en": "english",
-    "jp": "japan",
-    "cn": "ch",
-    "vi": "vietnam",
-    "th": "thai"
-}
+ocr = PaddleOCR(use_angle_cls=True, lang='korean')
 
 
-def get_ocr(lang_code: str):
-    if lang_code not in OCR_MODELS:
-        paddle_lang = LANG_MAP.get(lang_code, "korean")
-        print(f"[DEBUG] PaddleOCR 초기화: {paddle_lang}")
-        OCR_MODELS[lang_code] = PaddleOCR(
-            lang=paddle_lang,
-            use_angle_cls=True,
-            use_gpu=False,
-            ir_optim=False
-        )
-    return OCR_MODELS[lang_code]
-
-
-async def run_ocr(upload_file, lang_code="ko") -> str:
-    print(f"\n[DEBUG] OCR 시작 - 언어: {lang_code}")
-    print(f"[DEBUG] 파일명: {upload_file.filename}")
-    print(f"[DEBUG] Content-Type: {upload_file.content_type}")
+async def run_ocr(file, lang_code='ko') -> str:
+    """
+    파일 타입에 따라 텍스트 추출
+    지원: PDF, DOCX, HWP, PNG, JPG, JPEG, WEBP, BMP, TIFF
+    """
+    filename = file.filename.lower()
+    content = await file.read()
 
     try:
-        contents = await upload_file.read()
-        print(f"[DEBUG] 파일 읽기 완료: {len(contents)} bytes")
-
-        # 파일 타입 확인
-        filename = upload_file.filename.lower()
-
-        # PDF 처리
         if filename.endswith('.pdf'):
-            return await process_pdf(contents, lang_code)
+            return extract_from_pdf(content)
 
-        # DOCX 처리
         elif filename.endswith('.docx'):
-            return await process_docx(contents)
+            return extract_from_docx(content)
 
-        # 이미지 처리 (PNG, JPG, JPEG)
+        elif filename.endswith('.hwp'):
+            return extract_from_hwp(content)
+
+        elif filename.endswith('.hwpx'):
+            return extract_from_hwpx(content)
+
+        elif filename.split('.')[-1] in ['png', 'jpg', 'jpeg', 'webp', 'bmp', 'tiff', 'tif']:
+            return extract_from_image(content)
+
         else:
-            return await process_image(contents, lang_code)
+            raise ValueError(f"지원하지 않는 파일 형식: {filename}")
 
     except Exception as e:
-        print(f"[ERROR] OCR 에러: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return ""
+        print(f"[ERROR] OCR 실패: {str(e)}")
+        raise
 
 
-async def process_image(contents: bytes, lang_code: str) -> str:
-    """이미지 파일 OCR 처리"""
-    print("[DEBUG] 이미지 파일 처리")
-
-    np_img = np.frombuffer(contents, np.uint8)
-    img = cv2.imdecode(np_img, cv2.IMREAD_COLOR)
-
-    if img is None:
-        print("[ERROR] 이미지 디코딩 실패")
-        return ""
-
-    print(f"[DEBUG] 이미지 크기: {img.shape}")
-
-    ocr = get_ocr(lang_code)
-    result = ocr.ocr(img)
-
-    return extract_text_from_ocr_result(result)
-
-
-async def process_pdf(contents: bytes, lang_code: str) -> str:
-    """PDF 파일 텍스트 추출 (텍스트 레이어 우선, 없으면 OCR)"""
-    print("[DEBUG] PDF 파일 처리 시작")
-
-    if not HAS_FITZ:
-        print("[ERROR] PyMuPDF가 설치되지 않음")
-        return ""
-
+def extract_from_pdf(content: bytes) -> str:
+    """PDF에서 텍스트 추출"""
     try:
-        pdf_document = fitz.open(stream=contents, filetype="pdf")
-        
-        # 1. 먼저 텍스트 레이어에서 추출 시도
-        extracted_text = ""
-        for page in pdf_document:
-            extracted_text += page.get_text() + "\n"
-        
-        # 텍스트가 충분히 있다면 (이미지가 아닌 텍스트 PDF라면) 바로 반환
-        if len(extracted_text.strip()) > 50:
-            print(f"[SUCCESS] PDF 텍스트 레이어에서 {len(extracted_text)} 글자 추출 완료")
-            pdf_document.close()
-            return extracted_text.strip()
-
-        # 2. 텍스트가 없다면 (스캔된 이미지 PDF라면) OCR 수행
-        print("[DEBUG] 텍스트 레이어 부족, OCR 수행 중...")
-        ocr = get_ocr(lang_code)
-        all_texts = []
-
-        for page_num in range(len(pdf_document)):
-            print(f"[DEBUG] PDF 페이지 {page_num + 1}/{len(pdf_document)} OCR 처리 중")
-            page = pdf_document[page_num]
-
-            # 페이지를 이미지로 렌더링
-            pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
-            img_data = pix.tobytes("png")
-
-            # OCR 처리
-            np_img = np.frombuffer(img_data, np.uint8)
-            img = cv2.imdecode(np_img, cv2.IMREAD_COLOR)
-
-            result = ocr.ocr(img)
-            page_text = extract_text_from_ocr_result(result)
-            all_texts.append(page_text)
-
-        pdf_document.close()
-        return "\n\n".join(all_texts)
-
-    except Exception as e:
-        print(f"[ERROR] PDF 처리 실패: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return ""
-
-
-async def process_docx(contents: bytes) -> str:
-    """DOCX 파일 텍스트 추출 (OCR 불필요)"""
-    print("[DEBUG] DOCX 파일 처리")
-
-    if not HAS_DOCX:
-        print("[ERROR] python-docx가 설치되지 않음")
-        return ""
-
-    try:
-        doc = Document(io.BytesIO(contents))
+        import fitz  # PyMuPDF
+        doc = fitz.open(stream=content, filetype="pdf")
         texts = []
 
-        for para in doc.paragraphs:
-            if para.text.strip():
-                texts.append(para.text.strip())
+        for page_num in range(len(doc)):
+            page = doc[page_num]
 
-        extracted_text = "\n".join(texts)
-        print(f"[SUCCESS] DOCX 처리 완료: {len(extracted_text)} 글자 추출")
-        return extracted_text
+            # 1. 텍스트 레이어 먼저 시도
+            text = page.get_text()
+            if text.strip():
+                texts.append(text)
+                continue
+
+            # 2. 텍스트가 없으면 OCR
+            print(f"[INFO] PDF 페이지 {page_num + 1}: 텍스트 없음, OCR 수행")
+            mat = fitz.Matrix(2, 2)  # 해상도 2배
+            pix = page.get_pixmap(matrix=mat)
+            img_data = pix.tobytes("png")
+
+            ocr_text = run_ocr_on_image_bytes(img_data)
+            if ocr_text:
+                texts.append(ocr_text)
+
+        doc.close()
+        return '\n'.join(texts)
 
     except Exception as e:
-        print(f"[ERROR] DOCX 처리 실패: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return ""
+        print(f"[ERROR] PDF 추출 실패: {str(e)}")
+        raise
 
 
-def extract_text_from_ocr_result(result) -> str:
-    """OCR 결과에서 텍스트 추출"""
-    if not result or result[0] is None:
-        print("[WARNING] OCR 결과 없음")
-        return ""
+def extract_from_docx(content: bytes) -> str:
+    """DOCX에서 텍스트 추출"""
+    try:
+        from docx import Document
+        doc = Document(io.BytesIO(content))
+        texts = [para.text for para in doc.paragraphs if para.text.strip()]
+        return '\n'.join(texts)
 
+    except Exception as e:
+        print(f"[ERROR] DOCX 추출 실패: {str(e)}")
+        raise
+
+
+def extract_from_hwp(content: bytes) -> str:
+    """HWP 파일에서 텍스트 추출"""
+    try:
+        # 방법 1: olefile로 파싱
+        import olefile
+        import zlib
+
+        if not olefile.isOleFile(io.BytesIO(content)):
+            raise ValueError("유효하지 않은 HWP 파일입니다.")
+
+        ole = olefile.OleFileIO(io.BytesIO(content))
+        texts = []
+
+        # BodyText 섹션에서 텍스트 추출
+        if ole.exists('BodyText'):
+            body_dir = ole.listdir()
+            sections = [s for s in body_dir if len(s) > 1 and s[0] == 'BodyText']
+            sections.sort()
+
+            for section in sections:
+                try:
+                    section_path = '/'.join(section)
+                    data = ole.openstream(section_path).read()
+
+                    # 압축 해제 시도
+                    try:
+                        decompressed = zlib.decompress(data, -15)
+                    except:
+                        decompressed = data
+
+                    # 텍스트 레코드 파싱
+                    text = parse_hwp_text(decompressed)
+                    if text:
+                        texts.append(text)
+
+                except Exception as e:
+                    print(f"[WARNING] HWP 섹션 파싱 실패: {str(e)}")
+                    continue
+
+        ole.close()
+
+        result = '\n'.join(texts)
+
+        if not result.strip():
+            # 방법 2: 바이너리에서 한글 텍스트 직접 추출
+            result = extract_text_from_binary(content)
+
+        return result
+
+    except ImportError:
+        print("[WARNING] olefile 없음. 바이너리 추출 시도")
+        return extract_text_from_binary(content)
+
+    except Exception as e:
+        print(f"[ERROR] HWP 추출 실패: {str(e)}")
+        raise
+
+
+def parse_hwp_text(data: bytes) -> str:
+    """HWP 바이너리 레코드에서 텍스트 파싱"""
     texts = []
-    for page_idx, page in enumerate(result):
-        if page is None:
-            continue
+    i = 0
 
-        for line in page:
-            if line and len(line) > 1 and line[1]:
+    while i < len(data) - 4:
+        try:
+            # 레코드 헤더 파싱 (4바이트)
+            header = int.from_bytes(data[i:i+4], 'little')
+            tag_id = header & 0x3FF
+            level = (header >> 10) & 0x3FF
+            size = (header >> 20) & 0xFFF
+
+            if size == 0xFFF:
+                if i + 8 > len(data):
+                    break
+                size = int.from_bytes(data[i+4:i+8], 'little')
+                i += 8
+            else:
+                i += 4
+
+            if i + size > len(data):
+                break
+
+            # 태그 67 = 파라그래프 텍스트
+            if tag_id == 67:
+                try:
+                    text = data[i:i+size].decode('utf-16-le', errors='ignore')
+                    text = text.replace('\x00', '').strip()
+                    if text:
+                        texts.append(text)
+                except:
+                    pass
+
+            i += size
+
+        except Exception:
+            i += 1
+
+    return '\n'.join(texts)
+
+
+def extract_text_from_binary(content: bytes) -> str:
+    """바이너리에서 한글/영문 텍스트 직접 추출 (fallback)"""
+    try:
+        # UTF-16-LE 디코딩 시도
+        text = content.decode('utf-16-le', errors='ignore')
+        # 제어문자 제거
+        import re
+        text = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f]', '', text)
+        lines = [line.strip() for line in text.split('\n') if line.strip() and len(line.strip()) > 2]
+        return '\n'.join(lines)
+    except:
+        return ""
+
+
+def extract_from_hwpx(content: bytes) -> str:
+    """HWPX(ZIP 기반) 파일에서 텍스트 추출"""
+    try:
+        import zipfile
+        from xml.etree import ElementTree as ET
+
+        texts = []
+
+        with zipfile.ZipFile(io.BytesIO(content)) as z:
+            # Contents/section*.xml 파일들 찾기
+            section_files = sorted([
+                name for name in z.namelist()
+                if name.startswith('Contents/section') and name.endswith('.xml')
+            ])
+
+            for section_file in section_files:
+                xml_content = z.read(section_file)
+                root = ET.fromstring(xml_content)
+
+                # 모든 텍스트 노드 추출
+                for elem in root.iter():
+                    if elem.text and elem.text.strip():
+                        texts.append(elem.text.strip())
+
+        return '\n'.join(texts)
+
+    except Exception as e:
+        print(f"[ERROR] HWPX 추출 실패: {str(e)}")
+        raise
+
+
+def extract_from_image(content: bytes) -> str:
+    """이미지에서 OCR로 텍스트 추출"""
+    return run_ocr_on_image_bytes(content)
+
+
+def run_ocr_on_image_bytes(image_bytes: bytes) -> str:
+    """이미지 바이트에서 OCR 수행"""
+    try:
+        # 이미지 디코딩
+        nparr = np.frombuffer(image_bytes, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+
+        if img is None:
+            # PIL로 재시도
+            from PIL import Image
+            pil_img = Image.open(io.BytesIO(image_bytes))
+            pil_img = pil_img.convert('RGB')
+            img = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
+
+        if img is None:
+            raise ValueError("이미지 디코딩 실패")
+
+        # 이미지 전처리 (스캔 이미지 품질 향상)
+        img = preprocess_image(img)
+
+        # OCR 수행
+        result = ocr.ocr(img, cls=True)
+
+        if not result or not result[0]:
+            return ""
+
+        texts = []
+        for line in result[0]:
+            if line and len(line) > 1:
                 text = line[1][0]
-                texts.append(text)
+                confidence = line[1][1]
+                if confidence > 0.5:
+                    texts.append(text)
 
-    extracted_text = "\n".join(texts)
-    print(f"[SUCCESS] OCR 완료: {len(extracted_text)} 글자 추출")
-    return extracted_text
+        return '\n'.join(texts)
+
+    except Exception as e:
+        print(f"[ERROR] 이미지 OCR 실패: {str(e)}")
+        raise
+
+
+def preprocess_image(img):
+    """스캔 이미지 전처리 (노이즈 제거, 대비 향상)"""
+    try:
+        # 그레이스케일 변환
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+        # 노이즈 제거
+        denoised = cv2.fastNlMeansDenoising(gray, h=10)
+
+        # 적응형 이진화 (스마트폰 촬영 이미지에 효과적)
+        binary = cv2.adaptiveThreshold(
+            denoised, 255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY, 11, 2
+        )
+
+        # 다시 컬러로 변환
+        result = cv2.cvtColor(binary, cv2.COLOR_GRAY2BGR)
+        return result
+
+    except Exception:
+        return img
