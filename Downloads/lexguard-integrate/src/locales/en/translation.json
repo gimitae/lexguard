@@ -33,22 +33,22 @@
       ]
     },
     "lawfirms": {
-      "title": "Need 1-on-1 Expert Consultation?",
-      "subtitle1": "Verified legal experts will review your contract directly",
-      "subtitle2": "and provide tailored solutions.",
+      "title": "Need help with 1:1 expert consultation?",
+      "subtitle1": "Our verified legal AI will directly review your contract",
+      "subtitle2": "and correct any risks.",
       "cta": "Request Expert Consultation",
       "stats": {
-        "lawyers": "Partner Lawyers",
+        "lawyers": "Number of Customers Helped",
         "lawyersCount": "120+",
-        "lawyersDesc": "Experts in labor law, contract law, civil litigation, and more",
-        "rating": "Average Rating",
+        "lawyersDesc": "Contract-related assistance",
+        "rating": "Average Satisfaction",
         "ratingScore": "4.9",
-        "ratingDesc": "Based on 1,000+ real customer reviews",
-        "resolution": "Resolution Rate",
+        "ratingDesc": "Real reviews from 100+ clients",
+        "resolution": "Contract Revision Satisfaction Rate",
         "resolutionRate": "95%",
-        "resolutionDesc": "Most cases resolved amicably through negotiation"
+        "resolutionDesc": "Most contracts resolved smoothly"
       },
-      "consultationNote": "First 30 minutes free • Average response time: 2 hours"
+      "consultationNote": "First analysis free"
     },
     "trusted": {
       "label": "TRUSTED BY",
@@ -153,12 +153,12 @@
     "contact": {
       "email": {
         "title": "Email",
-        "value": "support@lexguard.com",
+        "value": "support@barungyeyak.com",
         "time": "Response within 24 hours"
       },
       "kakao": {
         "title": "KakaoTalk",
-        "value": "@lexguard",
+        "value": "@barungyeyak",
         "time": "Weekdays 09:00 - 18:00"
       },
       "phone": {
@@ -177,11 +177,15 @@
       "items": [
         {
           "question": "How accurate is the contract analysis?",
-          "answer": "Our AI model has learned from thousands of case laws and legal data to detect risks with over 95% accuracy."
+          "answer": "The AI model has been trained on thousands of legal precedents and statutory data, detecting risks with over 95% accuracy. However, we recommend consulting a qualified attorney for final legal judgment."
         },
         {
-          "question": "Is my uploaded contract safe?",
-          "answer": "All documents are immediately encrypted and destroyed after analysis."
+          "question": "Are the uploaded contracts secure?",
+          "answer": "All documents are encrypted and permanently deleted immediately after analysis. Your personal information and contract contents are strictly protected."
+        },
+        {
+          "question": "Can I download the analysis results?",
+          "answer": "Yes. Once the analysis is complete, you can download the results in PDF format. Premium members can also download the revised contract."
         }
       ]
     }
@@ -192,8 +196,40 @@
     "sections": {
       "article1": {
         "title": "Article 1 (Purpose)",
-        "content": "Terms regarding the AI-based contract analysis service provided by LexGuard."
+        "content": "These terms aim to stipulate the rights, obligations, responsibilities, and other necessary matters between the Company and users regarding the use of AI-based contract analysis services (hereinafter referred to as \"Service\") provided by BarunGyeyak (hereinafter referred to as \"Company\")."
+      },
+      "article2": {
+        "title": "Article 2 (Membership Registration)",
+        "content1": "① Membership registration is concluded when a user agrees to the terms and applies for membership, and the Company accepts such application.",
+        "content2": "② The Company may refuse to accept or terminate the service agreement for applications that fall under any of the following:",
+        "items": [
+          "Use of another person's name",
+          "Provision of false information",
+          "Failure to meet other membership application requirements set by the Company"
+        ]
+      },
+      "article3": {
+        "title": "Article 3 (Service Provision)",
+        "content": "① The Company provides the following services:",
+        "services": [
+          "AI-based contract risk analysis",
+          "Connection to legal expert consultation",
+          "Contract revision suggestions",
+          "Other services developed or provided through partnership agreements by the Company"
+        ]
+      },
+      "article4": {
+        "title": "Article 4 (Service Limitations and Disclaimers)",
+        "content1": "① All analysis results, revision suggestions, and advice provided by this Service are for reference purposes only and should not be interpreted as legal advice or opinions.",
+        "content2": "② Users acknowledge that they bear full responsibility for any modifications to contracts or decisions made based on the analysis results of this Service.",
+        "content3": "③ The Company assumes no responsibility for any direct or indirect damages, contractual disputes, or legal liabilities arising from the use of the Service.",
+        "content4": "④ For accurate legal advice, we strongly recommend consulting with a qualified lawyer or legal professional."
       }
+    },
+    "placeholder": "📄 Detailed terms will be added after backend integration",
+    "contact": {
+      "title": "Inquiries",
+      "description": "For inquiries regarding the terms of service, please contact us through customer support."
     }
   },
   "auth": {
@@ -210,6 +246,27 @@
     "loginError": "Invalid email or password.",
     "signupSuccess": "Welcome! 5 tokens have been added to your account.",
     "signupFail": "Sign up failed: "
+  },
+
+  "signup": {
+    "title": "Sign Up",
+    "subtitle": "Please agree to the terms to use the service",
+    "button": "Sign Up",
+    "skipForNow": "Skip for now",
+    "accountInfo": "Account Information",
+    "accountSubtitle": "Please enter your email and password",
+    "agreements": {
+      "all": "Agree to all",
+      "termsPrefix": "[Required]",
+      "termsLink": "Terms of Service",
+      "termsSuffix": "agreement",
+      "privacyPrefix": "[Required]",
+      "privacyLink": "Privacy Policy",
+      "privacySuffix": "agreement",
+      "age": "[Required] I am 14 years or older",
+      "marketing": "[Required] Marketing Information",
+      "notice": "Please agree to all required items"
+    }
   },
   "common": {
     "yes": "Yes",
@@ -231,6 +288,70 @@
     "noFile": "Please select a file.",
     "uploadFailed": "File upload failed. Please try again.",
     "analysisFailed": "An error occurred during analysis. Please try again."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "article1": {
+      "title": "Article 1 (Purpose of Collection and Use of Personal Information)",
+      "content": "The Company processes personal information for the following purposes. The personal information being processed will not be used for purposes other than the following, and if the purpose of use changes, necessary measures will be implemented, such as obtaining separate consent in accordance with the Personal Information Protection Act.",
+      "item1": "Membership registration and management: Confirmation of intention to join, provision of membership services, identification and authentication",
+      "item2": "Service provision: Provision of contract analysis services, content provision, customized service provision",
+      "item3": "Marketing and advertising: Development of new services and provision of customized services, provision of event information and advertising information"
+    },
+    "article2": {
+      "title": "Article 2 (Items of Personal Information Collected)",
+      "content": "The Company collects the following personal information to provide services.",
+      "required": "Required Collection Items",
+      "requiredItem1": "Email address",
+      "requiredItem2": "Password (encrypted storage)",
+      "requiredItem3": "Service usage records, access logs, cookies, access IP information",
+      "optional": "Optional Collection Items",
+      "optionalItem1": "Name, contact information (when applying for consultation)"
+    },
+    "article3": {
+      "title": "Article 3 (Retention and Use Period of Personal Information)",
+      "content": "In principle, the Company destroys the information without delay after the purpose of collection and use of personal information is achieved. However, the following information is retained for the period specified below for the reasons stated.",
+      "item1": "Upon membership withdrawal: Immediate deletion upon withdrawal",
+      "item2": "Retention according to relevant laws: Retained for a certain period according to relevant laws such as the E-Commerce Act and the Communications Secrets Protection Act",
+      "item3": "Contract analysis data: Immediately encrypted and destroyed after analysis completion"
+    },
+    "article4": {
+      "title": "Article 4 (Provision of Personal Information to Third Parties)",
+      "content": "In principle, the Company processes users' personal information within the scope specified in Article 1 and does not process beyond the original scope or provide it to third parties without the user's prior consent. However, exceptions are made in the following cases.",
+      "item1": "When the user has consented in advance",
+      "item2": "When required by investigative agencies according to procedures and methods defined by law for investigation purposes"
+    },
+    "article5": {
+      "title": "Article 5 (Procedures and Methods for Destroying Personal Information)",
+      "content": "In principle, the Company destroys personal information without delay when the purpose of processing personal information is achieved.",
+      "procedure": "Destruction Procedure",
+      "procedureDesc": "Information entered by users is transferred to a separate DB after the purpose is achieved (separate documents in case of paper) and stored for a certain period according to internal policies and other relevant laws, or destroyed immediately.",
+      "method": "Destruction Method",
+      "methodItem1": "Electronic file format: Permanently deleted in an unrecoverable manner",
+      "methodItem2": "Paper documents: Shredded or incinerated"
+    },
+    "article6": {
+      "title": "Article 6 (Rights and Obligations of Data Subjects and Methods of Exercise)",
+      "content": "Users can exercise the following rights as personal information subjects.",
+      "item1": "Request to view personal information",
+      "item2": "Request correction in case of errors",
+      "item3": "Request deletion",
+      "item4": "Request suspension of processing"
+    },
+    "article7": {
+      "title": "Article 7 (Personal Information Protection Officer)",
+      "content": "The Company designates a Personal Information Protection Officer as follows to oversee personal information processing and to handle complaints and remedy damages related to personal information processing.",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "article8": {
+      "title": "Article 8 (Changes to Privacy Policy)",
+      "content": "This privacy policy is applied from the effective date, and if there are additions, deletions, or corrections to changes according to laws and policies, they will be announced through notices 7 days before the implementation of the changes."
+    },
+    "announcement": "Announcement Date: February 16, 2026",
+    "effective": "Effective Date: February 16, 2026"
   },
   "mypage": {
     "title": "My Page",

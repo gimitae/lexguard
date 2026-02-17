@@ -8,7 +8,6 @@ const Header = ({ isLoggedIn, tokens, onNavigate, currentView, onOpenMyPage }) =
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { id: 'lawfirms', label: t('header.menu.consultation') },
     { id: 'terms', label: t('header.menu.terms') },
     { id: 'support', label: t('header.menu.support') }
   ];

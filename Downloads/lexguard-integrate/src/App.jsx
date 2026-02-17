@@ -6,6 +6,7 @@ import AnalysisView from './views/AnalysisView';
 import LawFirmsView from './views/LawFirmsView';
 import TermsView from './views/TermsView';
 import SupportView from './views/SupportView';
+import PrivacyView from './views/PrivacyView';
 import LoadingScreen from './components/LoadingScreen';
 import MyPage from './components/MyPage';
 
@@ -206,6 +207,9 @@ const App = () => {
         {currentView === 'lawfirms' && <LawFirmsView onAuth={() => navigateTo('login')} />}
         {currentView === 'terms' && <TermsView />}
         {currentView === 'support' && <SupportView />}
+        {currentView === 'privacy' && (
+          <PrivacyView onBack={() => navigateTo('signup')} />
+        )}
 
         {currentView === 'preview_result' && (
           <PreviewResult
@@ -264,13 +268,14 @@ const App = () => {
         <SignupView
           onAuth={() => navigateTo('landing')}
           onCancel={() => navigateTo('landing')}
+          onNavigate={navigateTo}
         />
       )}
 
       {appState.ui.currentView === 'landing' && (
         <footer className="py-12 border-t border-slate-100 text-center">
           <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">
-            © 2026 LEXGUARD LEGAL. ALL SECURED.
+            © 2026 Barungyeyak LEGAL. ALL SECURED.
           </p>
         </footer>
       )}

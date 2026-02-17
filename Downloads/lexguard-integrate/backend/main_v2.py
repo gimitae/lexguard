@@ -14,7 +14,7 @@ try:
     TEXT_EXTRACTION_AVAILABLE = True
 except Exception as e:
     TEXT_EXTRACTION_AVAILABLE = False
-    print(f"⚠️  utils.py를 찾을 수 없습니다. 기본 모의 분석 모드로 실행합니다.{e}")
+    print(f"utils.py를 찾을 수 없습니다. 기본 모의 분석 모드로 실행합니다.{e}")
 
 app = FastAPI(
     title="바른계약 API",
@@ -100,16 +100,16 @@ async def analyze_contract(file: UploadFile = File(...)):
     if file_size > 20 * 1024 * 1024:
         raise HTTPException(status_code=400, detail="파일 크기는 20MB 이하여야 합니다.")
     
-    print(f"📄 분석 시작: {file.filename} ({file_size} bytes)")
+    print(f"분석 시작: {file.filename} ({file_size} bytes)")
     
     # 2. 텍스트 추출 시도
     extracted_text = None
     if TEXT_EXTRACTION_AVAILABLE:
         try:
             extracted_text = extract_text_from_file(file_content, file_ext)
-            print(f"✅ 텍스트 추출 성공: {len(extracted_text)} 글자")
+            print(f"텍스트 추출 성공: {len(extracted_text)} 글자")
         except Exception as e:
-            print(f"⚠️  텍스트 추출 실패: {str(e)}")
+            print(f"텍스트 추출 실패: {str(e)}")
     
     # 3. 분석 수행
     time.sleep(1)  # 분석 시뮬레이션
@@ -152,47 +152,21 @@ async def analyze_contract(file: UploadFile = File(...)):
         # 텍스트 추출 불가 시 기본 모의 데이터
         result = {
             "risks": {
-                "critical": 1,
-                "warning": 2,
+                "critical": 0,
+                "warning": 0,
                 "info": 0
             },
             "details": [
-                {
-                    "id": "R1",
-                    "severity": "high",
-                    "title": "부당해고 금지 조항 위반",
-                    "description": "근로기준법 제23조에 의거, 정당한 이유 없는 해고는 무효입니다.",
-                    "legalBasis": "근로기준법 제23조 제1항",
-                    "suggestion": "갑은 정당한 이유가 있는 경우 근로기준법의 절차에 따라 해지할 수 있다.",
-                    "position": {"start": 120, "end": 165}
-                },
-                {
-                    "id": "R2",
-                    "severity": "medium",
-                    "title": "경업금지 기간 과도",
-                    "description": "퇴사 후 10년간 동종업종 취업 금지는 과도한 제한입니다.",
-                    "legalBasis": "대법원 2021다234567 판결",
-                    "suggestion": "퇴사 후 1년간 직접 경쟁관계에 있는 동종업종에 취업할 수 없다.",
-                    "position": {"start": 200, "end": 240}
-                },
-                {
-                    "id": "R3",
-                    "severity": "medium",
-                    "title": "손해배상 조항",
-                    "description": f"파일 '{file.filename}'에서 추가 검토가 필요한 조항이 발견되었습니다.",
-                    "legalBasis": "민법 제398조",
-                    "suggestion": "손해배상 범위를 명확히 제한하시기 바랍니다.",
-                    "position": {"start": 350, "end": 400}
-                }
+                
             ],
             "metadata": {
                 "filename": file.filename,
                 "fileSize": file_size,
-                "note": "텍스트 추출 없이 모의 분석 결과를 반환했습니다."
+                "note": "텍스트 추출이 불가능합니다. 파일을 다시한번 확인해주세요."
             }
         }
     
-    print(f"✅ 분석 완료: {len(result['details'])}개 이슈")
+    print(f"분석 완료: {len(result['details'])}개 이슈")
     return result
 
 # ============================================
@@ -244,6 +218,6 @@ async def extract_text_only(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 바른계약 백엔드 서버 시작...")
-    print(f"📚 텍스트 추출: {'활성화' if TEXT_EXTRACTION_AVAILABLE else '비활성화'}")
+    print("바른계약 백엔드 서버 시작...")
+    print(f"텍스트 추출: {'활성화' if TEXT_EXTRACTION_AVAILABLE else '비활성화'}")
     uvicorn.run(app, host="0.0.0.0", port=8000)

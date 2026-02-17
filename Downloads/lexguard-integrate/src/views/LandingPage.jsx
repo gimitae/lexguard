@@ -1,7 +1,6 @@
 import React from 'react';
 import { Lock, CheckCircle, ArrowRight, Star, Users, Shield } from 'lucide-react';
 import FileUploadZone from '../components/FileUploadZone';
-import { FEATURE_LIST } from '../constants';
 import { useTranslation } from 'react-i18next';
 
 // onNavigate prop 포함 (HEAD 기준 유지)
@@ -49,12 +48,12 @@ const LandingPage = ({ onFileUpload, onNavigate }) => {
               {t('landing.features.titleBold')}
             </h2>
             <div className="space-y-4">
-              {FEATURE_LIST.map((feature) => (
-                <div key={feature.id} className="flex items-start gap-3">
+              {t('landing.features.list', { returnObjects: true }).map((feature, i) => (
+                <div key={i} className="flex items-start gap-3">
                   <div className="mt-1 p-0.5 bg-indigo-600 rounded-full">
                     <CheckCircle className="w-4 h-4 text-white" />
                   </div>
-                  <span className="font-bold text-slate-700">{feature.text}</span>
+                  <span className="font-bold text-slate-700">{feature}</span>
                 </div>
               ))}
             </div>
@@ -159,13 +158,7 @@ const LandingPage = ({ onFileUpload, onNavigate }) => {
 
           <div className="text-center">
             {/* onNavigate 유지 */}
-            <button
-              onClick={() => onNavigate('lawfirms')}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-indigo-600 rounded-2xl font-black text-lg hover:bg-indigo-50 transition-all shadow-2xl active:scale-95"
-            >
-              {t('landing.lawfirms.cta')}
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            
             <p className="mt-4 text-indigo-200 text-sm">
               {t('landing.lawfirms.consultationNote')}
             </p>
