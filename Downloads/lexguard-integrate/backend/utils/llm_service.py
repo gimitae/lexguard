@@ -78,37 +78,37 @@ def analyze_all_clauses_batch(clauses: list, related_laws_per_clause: list):
     전체 계약서의 맥락(Context)을 함께 전달하여, 단편적인 오판을 방지함.
     """
     print(f"\n[DEBUG] 개별 조항 분석 시작 (문맥 포함) - 총 {len(clauses)}개 조항")
-    
+
     results = []
-    
+
     # 전체 계약서 맥락 생성 (너무 길면 앞부분 3000자만 끊어서 전달 - 토큰 절약 및 핵심 파악)
     full_context = "\n".join(clauses)
     if len(full_context) > 3000:
         full_context = full_context[:3000] + "\n...(후략)..."
-    
+
     for i, clause in enumerate(clauses):
         # 빈 조항 건너뜀
         if not clause.strip():
             continue
-            
-        print(f"[DEBUG] 조항 {i+1}/{len(clauses)} 분석 중...")
-        
+
+        print(f"[DEBUG] 조항 {i + 1}/{len(clauses)} 분석 중...")
+
         try:
             related_laws = related_laws_per_clause[i] if i < len(related_laws_per_clause) else []
-            
+
             # 분석 호출 시 전체 맥락(full_context)을 함께 전달
             analysis = analyze_clause(clause, related_laws, context=full_context)
-            
+
             analysis["clause_number"] = i + 1
             analysis["original_text"] = clause[:100]
-            
+
             if "severity" not in analysis:
                 analysis["severity"] = "DISADVANTAGE"
-                
+
             results.append(analysis)
-            
+
         except Exception as e:
-            print(f"[ERROR] 조항 {i+1} 분석 실패: {str(e)}")
+            print(f"[ERROR] 조항 {i + 1} 분석 실패: {str(e)}")
             results.append({
                 "clause_number": i + 1,
                 "original_text": clause[:50],
@@ -159,12 +159,21 @@ def analyze_clause(clause: str, related_laws: list, context: str = ""):
 3. 응답은 반드시 JSON 형식이어야 한다.
 
 ## 응답 JSON 형식:
+"모든 설명(explanation)과 제안(suggestion)은 ko, en, ja 키를 가진 객체로 작성해야 하며, 각 언어에 맞는 법률 용어를 사용하여 번역하라."
 {
   "violation": false,
-  "law_reference": "관련 법 조항 또는 '해당 없음'",
-  "explanation": "판단 근거 (전체 맥락을 고려했을 때의 해석 포함)",
+  "law_reference": "관련 법 조항 또는 '해당 없음' (Relevant Law Article or 'N/A')",
+  "explanation": {
+    "ko": "한국어 판단 근거 (전체 맥락 고려)",
+    "en": "Judgement basis in English (Considering overall context)",
+    "ja": "日本語での判断根拠 (全体적인 문맥 고려)"
+  },
   "severity": "SAFE",
-  "suggestion": "필요 시 수정 제안 (문제가 없으면 '해당 없음')"
+  "suggestion": {
+    "ko": "한국어 수정 제안 (없으면 '해당 없음')",
+    "en": "Modification suggestion in English (If none, 'N/A')",
+    "ja": "日本語での修正提案 (なければ '該当なし')"
+  }
 }
 """
 
@@ -180,7 +189,7 @@ def analyze_clause(clause: str, related_laws: list, context: str = ""):
         )
 
         text = response.choices[0].message.content.strip()
-        
+
         # JSON 파싱 (안전 처리)
         try:
             if text.startswith("```json"): text = text[7:]
@@ -188,24 +197,29 @@ def analyze_clause(clause: str, related_laws: list, context: str = ""):
             text = text.strip()
             result = json.loads(text, strict=False)
         except json.JSONDecodeError:
-             # 파싱 실패 시 강제 추출 시도
+            # 파싱 실패 시 강제 추출 시도
             start = text.find("{")
             end = text.rfind("}")
             if start != -1 and end != -1:
-                result = json.loads(text[start:end+1], strict=False)
+                result = json.loads(text[start:end + 1], strict=False)
             else:
                 raise ValueError("JSON 파싱 실패")
 
         # 등급 보정 로직
         sev = result.get("severity", "SAFE").upper()
-        if sev in ["HIGH", "CRITICAL"]: result["severity"] = "CRITICAL"
-        elif sev in ["MEDIUM", "WARNING"]: result["severity"] = "WARNING"
-        elif sev in ["LOW", "DISADVANTAGE"]: result["severity"] = "DISADVANTAGE"
-        elif sev == "SAFE": result["severity"] = "SAFE"
-        else: result["severity"] = "DISADVANTAGE"
+        if sev in ["HIGH", "CRITICAL"]:
+            result["severity"] = "CRITICAL"
+        elif sev in ["MEDIUM", "WARNING"]:
+            result["severity"] = "WARNING"
+        elif sev in ["LOW", "DISADVANTAGE"]:
+            result["severity"] = "DISADVANTAGE"
+        elif sev == "SAFE":
+            result["severity"] = "SAFE"
+        else:
+            result["severity"] = "DISADVANTAGE"
 
         return result
-        
+
     except Exception as e:
         print(f"[ERROR] 단일 분석 에러: {str(e)}")
         return {"severity": "DISADVANTAGE", "explanation": "분석 중 오류 발생"}

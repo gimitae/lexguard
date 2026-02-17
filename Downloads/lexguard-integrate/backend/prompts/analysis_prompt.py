@@ -17,6 +17,10 @@ SYSTEM_PROMPT = """너는 대한민국 근로기준법 및 관련 판례 데이�
 ### 3. 데이터 활용
 - 반드시 제공된 [관련 법률 정보]를 바탕으로 판단하되, 조항 내용이 부족하더라도 근로기준법의 기본 원칙(근로자 보호)을 우선하여 해석하라.
 - 불확실한 경우 'SAFE'가 아닌 'DISADVANTAGE'로 분류하여 사용자에게 주의를 환기시켜라.
+
+### 4. 다국어 지원 규칙
+- 모든 분석 결과 중 'explanation'과 'suggestion'은 반드시 한국어(ko), 영어(en), 일본어(ja) 3개 국어로 제공해야 한다.
+- JSON 내부의 해당 필드는 객체 형식으로 작성하라.
 """
 
 
@@ -35,12 +39,21 @@ def build_analysis_prompt(clause_text: str, related_laws: list):
 {laws_context}
 
 ## 응답 JSON 구조:
+"모든 설명(explanation)과 제안(suggestion)은 ko, en, ja 키를 가진 객체로 작성해야 하며, 각 언어에 맞는 법률 용어를 사용하여 번역하라."
 {{
   "original_text": "문제가 된 문구",
-  "violation": true/false,
+  "violation": true,
   "law_reference": "법 조항 번호",
-  "explanation": "법률적 관점에서의 상세 설명",
-  "severity": "CRITICAL/WARNING/DISADVANTAGE/SAFE",
-  "suggestion": "근로자에게 유리한 구체적 수정안"
+  "explanation": {{
+    "ko": "상세 설명",
+    "en": "Detailed explanation",
+    "ja": "詳細な説明"
+  }},
+  "severity": "CRITICAL",
+  "suggestion": {{
+    "ko": "구체적 수정안",
+    "en": "Specific suggestion",
+    "ja": "具体的な修正案"
+  }}
 }}
 """
