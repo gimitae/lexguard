@@ -1,0 +1,387 @@
+{
+  "header": {
+    "logo": "바른계약",
+    "menu": {
+      "home": "홈",
+      "consultation": "전문 상담",
+      "terms": "이용약관",
+      "support": "고객지원"
+    },
+    "login": "로그인",
+    "logout": "로그아웃"
+  },
+  "landing": {
+    "hero": {
+      "title": "계약서 리스크를",
+      "titleHighlight": "3분 안에 찾으세요",
+      "subtitle1": "파일을 업로드하여",
+      "subtitle2": "인공지능의 리스크 분석 결과를 즉시 확인하세요.",
+      "securityBadge": "모든 문서는 분석 후 즉시 암호화 폐기됩니다."
+    },
+    "upload": {
+      "title": "파일을 드래그하거나 클릭하여 업로드",
+      "subtitle": "최대 20MB",
+      "changeFile": "클릭하여 다른 파일 선택"
+    },
+    "features": {
+      "title": "법에 근거한",
+      "titleBold": "정확한 수정 가이드",
+      "list": [
+        "독소 조항(Red Flag) 즉시 식별",
+        "법적 근거 및 판례 데이터 기반 설명",
+        "대안 조항(Drafting) 원클릭 복사"
+      ]
+    },
+    "lawfirms": {
+      "title": "전문가와 1:1 상담이 힘드신가요?",
+      "subtitle1": "법률 전문 AI가 귀하의 계약서를 직접 검토하고",
+      "subtitle2": "위험사항을 수정합니다.",
+      "cta": "전문가 상담 신청하기",
+      "stats": {
+        "lawyers": "도움받으신 고객의 수",
+        "lawyersCount": "120+",
+        "lawyersDesc": "계약서 관련 도움",
+        "rating": "평균 만족도",
+        "ratingScore": "4.9",
+        "ratingDesc": "100+ 고객이 남긴 실제 리뷰",
+        "resolution": "계약 수정사항 만족률",
+        "resolutionRate": "95%",
+        "resolutionDesc": "대부분의 계약을 원만하게 해결"
+      },
+      "consultationNote": "첫 분석 1회 무료"
+    },
+    "trusted": {
+      "label": "TRUSTED BY",
+      "companies": [
+        "LAW-TECH",
+        "SECURE_LABS",
+        "CORP_LEGAL"
+      ]
+    },
+    "howItWorks": {
+      "title": "간단한 3단계로 시작하세요",
+      "steps": [
+        {
+          "number": "1",
+          "title": "계약서 업로드",
+          "description": "PDF 또는 Word 파일을 드래그하여 업로드하세요"
+        },
+        {
+          "number": "2",
+          "title": "AI 분석 확인",
+          "description": "10분 내로 리스크와 수정 권장안을 확인하세요"
+        },
+        {
+          "number": "3",
+          "title": "권장안 저장",
+          "description": "수정해야할부분을 다운로드하세요"
+        }
+      ]
+    },
+    "preview": {
+      "label": "ANALYSIS PREVIEW"
+    }
+  },
+  "analysis": {
+    "loading": {
+      "title": "AI 엔진이 법률 리스크를 분석하고 있습니다",
+      "steps": {
+        "scanning": "계약서 스캔 중...",
+        "comparing": "판례 DB 대조 중...",
+        "complete": "리스크 분석 완료"
+      },
+      "wait": "잠시만 기다려 주세요..."
+    },
+    "preview": {
+      "title": "분석이 완료되었습니다!",
+      "description": "치명적 리스크 {{critical}}건과 주의 조항 {{warning}}건이 발견되었습니다.",
+      "cta": "결과 무료로 확인하기"
+    },
+    "result": {
+      "critical": "치명적",
+      "warning": "주의",
+      "download": "수정된 계약서 다운로드 (.docx)"
+    }
+  },
+  "lawfirms": {
+    "title": "전문 법률 상담",
+    "subtitle": "계약서 분석 결과를 바탕으로 전문 변호사와 1:1 상담을 받아보세요",
+    "search": "법률사무소 이름 또는 전문 분야 검색...",
+    "filters": {
+      "all": "전체",
+      "labor": "노동법",
+      "contract": "계약법",
+      "civil": "민사소송"
+    },
+    "consultation": "상담 신청",
+    "consultationFee": "상담료",
+    "consultationAlert": "{{firmName}}과의 상담 신청 기능은 곧 제공됩니다.",
+    "stats": {
+      "experience": "경력",
+      "cases": "처리 건수",
+      "casesUnit": "건",
+      "location": "위치",
+      "responseTime": "응답 시간"
+    },
+    "cta": {
+      "title": "찾는 전문가가 없으신가요?",
+      "description": "저희가 귀하의 상황에 맞는 최적의 법률 전문가를 추천해드립니다",
+      "button": "맞춤 추천 받기"
+    }
+  },
+  "support": {
+    "title": "고객지원",
+    "subtitle": "무엇을 도와드릴까요? 언제든지 문의해주세요.",
+    "form": {
+      "title": "문의하기",
+      "name": "이름",
+      "namePlaceholder": "홍길동",
+      "email": "이메일",
+      "emailPlaceholder": "example@email.com",
+      "category": "문의 유형",
+      "message": "문의 내용",
+      "messagePlaceholder": "문의 내용을 입력해주세요...",
+      "submit": "문의 보내기",
+      "successMessage": "문의가 접수되었습니다. 곧 답변드리겠습니다."
+    },
+    "categories": {
+      "general": "일반 문의",
+      "technical": "기술 지원",
+      "billing": "결제/환불",
+      "partnership": "제휴 문의"
+    },
+    "contact": {
+      "email": {
+        "title": "이메일",
+        "value": "support@barungyeyak.com",
+        "time": "24시간 이내 답변"
+      },
+      "kakao": {
+        "title": "카카오톡",
+        "value": "@barungyeyak",
+        "time": "평일 09:00 - 18:00"
+      },
+      "phone": {
+        "title": "전화",
+        "value": "1588-0000",
+        "time": "평일 09:00 - 18:00"
+      },
+      "hours": {
+        "title": "운영 시간",
+        "weekday": "평일: 09:00 - 18:00",
+        "weekend": "주말 및 공휴일: 휴무"
+      }
+    },
+    "faq": {
+      "title": "자주 묻는 질문",
+      "items": [
+        {
+          "question": "계약서 분석은 얼마나 정확한가요?",
+          "answer": "AI 모델은 판례와 법률 데이터를 학습하여 조금이라도 의심가는 리스크를 모두 검출합니다. 다만, 최종 판단은 전문 변호사와 상담을 권장드립니다."
+        },
+        {
+          "question": "업로드한 계약서는 안전한가요?",
+          "answer": "모든 문서는 분석 후 즉시 폐기됩니다. 귀하의 개인정보와 계약 내용은 철저히 보호됩니다."
+        },
+        {
+          "question": "분석 결과를 다운로드할 수 있나요?",
+          "answer": "네, 분석 완료 후 html 형식으로 잘못된 부분의 수, 잘못된 부분이 어떤 법에 위배되는지, 권장안을 다운로드 하여 확인가능합니다."
+        }
+      ]
+    }
+  },
+  "terms": {
+    "title": "이용약관",
+    "lastUpdated": "최종 업데이트: 2026년 1월 1일",
+    "sections": {
+      "article1": {
+        "title": "제1조 (목적)",
+        "content": "본 약관은 바른계약(이하 \"회사\"라 함)가 제공하는 AI 기반 계약서 분석 서비스(이하 \"서비스\"라 함)의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다."
+      },
+      "article2": {
+        "title": "제2조 (회원가입)",
+        "content1": "① 회원가입은 이용자가 약관의 내용에 대하여 동의를 한 다음 회원가입 신청을 하고 회사가 이러한 신청에 대하여 승낙함으로써 체결됩니다.",
+        "content2": "② 회사는 다음 각 호에 해당하는 신청에 대하여는 승낙을 하지 않거나 사후에 이용계약을 해지할 수 있습니다:",
+        "items": [
+          "타인의 명의를 도용한 경우",
+          "허위의 정보를 기재한 경우",
+          "기타 회사가 정한 이용신청 요건이 미비한 경우"
+        ]
+      },
+      "article3": {
+        "title": "제3조 (서비스의 제공)",
+        "content": "① 회사는 다음과 같은 서비스를 제공합니다:",
+        "services": [
+          "AI 기반 계약서 리스크 분석",
+          "법률 전문가 상담 연결",
+          "계약서 수정안 제공",
+          "기타 회사가 추가 개발하거나 제휴계약 등을 통해 제공하는 서비스"
+        ]
+      },
+      "article4": {
+        "title": "제4조 (서비스의 한계 및 면책)",
+        "content1": "① 본 서비스에서 제공하는 모든 분석 결과, 수정안 및 조언은 참고 자료로서의 성격을 가지며, 법률적 자문이나 의견으로 해석되어서는 안 됩니다.",
+        "content2": "② 이용자는 본 서비스의 분석 결과를 바탕으로 계약서를 수정하거나 의사결정을 할 경우, 그에 따른 모든 책임은 이용자 본인에게 있음을 인정합니다.",
+        "content3": "③ 회사는 서비스 이용으로 인해 발생한 직간접적 손해, 계약상 분쟁, 법적 책임에 대하여 어떠한 책임도 부담하지 않습니다.",
+        "content4": "④ 정확한 법률 자문이 필요한 경우, 반드시 자격을 갖춘 변호사 또는 법률 전문가와 상담할 것을 권장합니다."
+      }
+    },
+    "placeholder": "📄 상세 약관은 백엔드 연동 후 추가 예정입니다",
+    "contact": {
+      "title": "문의사항",
+      "description": "이용약관에 관한 문의는 고객지원을 통해 연락주시기 바랍니다."
+    }
+  },
+  "signup": {
+    "title": "회원가입",
+    "subtitle": "서비스 이용을 위해 약관에 동의해주세요",
+    "button": "회원가입",
+    "skipForNow": "나중에 하기",
+    "accountInfo": "계정 정보 입력",
+    "accountSubtitle": "이메일과 비밀번호를 입력해주세요",
+    "agreements": {
+      "all": "전체 동의",
+      "termsPrefix": "[필수]",
+      "termsLink": "이용약관",
+      "termsSuffix": "동의",
+      "privacyPrefix": "[필수]",
+      "privacyLink": "개인정보 처리방침",
+      "privacySuffix": "동의",
+      "age": "[필수] 만 14세 이상입니다",
+      "marketing": "[필수] 마케팅 정보 수신 동의",
+      "notice": "필수 항목에 모두 동의해주세요"
+    }
+  },
+  "common": {
+    "yes": "예",
+    "no": "아니오",
+    "cancel": "취소",
+    "confirm": "확인",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "수정",
+    "close": "닫기",
+    "back": "뒤로",
+    "next": "다음",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다"
+  },
+  "errors": {
+    "fileTooBig": "파일 크기는 20MB를 초과할 수 없습니다.",
+    "invalidFileType": "PDF 또는 DOCX 파일만 업로드 가능합니다.",
+    "noFile": "파일을 선택해주세요.",
+    "uploadFailed": "파일 업로드에 실패했습니다. 다시 시도해주세요.",
+    "analysisFailed": "분석 중 오류가 발생했습니다. 다시 시도해주세요."
+  },
+  "auth": {
+    "loginTitle": "로그인",
+    "signupTitle": "회원가입",
+    "email": "이메일",
+    "password": "비밀번호",
+    "passwordPlaceholder": "비밀번호 (6자리 이상)",
+    "loginButton": "로그인하기",
+    "signupButton": "가입하기",
+    "close": "닫기",
+    "noAccount": "계정이 없으신가요?",
+    "moveToSignup": "회원가입 하기",
+    "loginError": "이메일 또는 비밀번호가 올바르지 않습니다.",
+    "signupSuccess": "가입을 축하합니다! 코인 5개가 지급되었습니다.",
+    "signupFail": "가입 실패: "
+  },
+  "privacy": {
+    "title": "개인정보 처리방침",
+    "lastUpdated": "최종 수정일",
+    "article1": {
+      "title": "제1조 (개인정보의 수집 및 이용 목적)",
+      "content": "회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.",
+      "item1": "회원 가입 및 관리: 회원 가입의사 확인, 회원제 서비스 제공, 본인 식별·인증",
+      "item2": "서비스 제공: 계약서 분석 서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공",
+      "item3": "마케팅 및 광고 활용: 신규 서비스 개발 및 맞춤 서비스 제공, 이벤트 정보 및 광고성 정보 제공"
+    },
+    "article2": {
+      "title": "제2조 (수집하는 개인정보의 항목)",
+      "content": "회사는 서비스 제공을 위해 다음과 같은 개인정보를 수집하고 있습니다.",
+      "required": "필수 수집 항목",
+      "requiredItem1": "이메일 주소",
+      "requiredItem2": "비밀번호 (암호화 저장)",
+      "requiredItem3": "서비스 이용 기록, 접속 로그, 쿠키, 접속 IP 정보",
+      "optional": "선택 수집 항목",
+      "optionalItem1": "이름, 연락처 (상담 신청 시)"
+    },
+    "article3": {
+      "title": "제3조 (개인정보의 보유 및 이용 기간)",
+      "content": "회사는 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.",
+      "item1": "회원 탈퇴 시: 회원 탈퇴 즉시 삭제",
+      "item2": "관련 법령에 따른 보관: 전자상거래법, 통신비밀보호법 등 관련 법령에 따라 일정 기간 보관",
+      "item3": "계약서 분석 데이터: 분석 완료 후 즉시 암호화 및 폐기"
+    },
+    "article4": {
+      "title": "제4조 (개인정보의 제3자 제공)",
+      "content": "회사는 원칙적으로 이용자의 개인정보를 제1조에서 명시한 범위 내에서 처리하며, 이용자의 사전 동의 없이는 본래의 범위를 초과하여 처리하거나 제3자에게 제공하지 않습니다. 다만, 다음의 경우에는 예외로 합니다.",
+      "item1": "이용자가 사전에 동의한 경우",
+      "item2": "법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우"
+    },
+    "article5": {
+      "title": "제5조 (개인정보의 파기 절차 및 방법)",
+      "content": "회사는 원칙적으로 개인정보 처리목적이 달성된 경우에는 지체없이 해당 개인정보를 파기합니다.",
+      "procedure": "파기 절차",
+      "procedureDesc": "이용자가 입력한 정보는 목적 달성 후 별도의 DB에 옮겨져(종이의 경우 별도의 서류) 내부 방침 및 기타 관련 법령에 따라 일정기간 저장된 후 혹은 즉시 파기됩니다.",
+      "method": "파기 방법",
+      "methodItem1": "전자적 파일 형태: 복구 불가능한 방법으로 영구 삭제",
+      "methodItem2": "종이 문서: 분쇄기로 분쇄하거나 소각"
+    },
+    "article6": {
+      "title": "제6조 (정보주체의 권리·의무 및 행사방법)",
+      "content": "이용자는 개인정보주체로서 다음과 같은 권리를 행사할 수 있습니다.",
+      "item1": "개인정보 열람 요구",
+      "item2": "오류 등이 있을 경우 정정 요구",
+      "item3": "삭제 요구",
+      "item4": "처리정지 요구"
+    },
+    "article7": {
+      "title": "제7조 (개인정보 보호책임자)",
+      "content": "회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.",
+      "name": "이름",
+      "email": "이메일",
+      "phone": "전화"
+    },
+    "article8": {
+      "title": "제8조 (개인정보 처리방침 변경)",
+      "content": "이 개인정보 처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다."
+    },
+    "announcement": "공고일자: 2026년 2월 16일",
+    "effective": "시행일자: 2026년 2월 16일"
+  },
+  "mypage": {
+    "title": "마이페이지",
+    "token": {
+      "title": "보유 토큰",
+      "charge": "충전하기",
+      "history": "토큰 사용 내역"
+    },
+    "profile": {
+      "title": "계정 정보",
+      "email": "이메일",
+      "joinDate": "가입일",
+      "plan": "이용 플랜",
+      "manage": "계정 설정"
+    },
+    "statistics": {
+      "title": "이용 통계",
+      "analyzed": "분석 완료",
+      "risksFound": "위험 발견",
+      "tokensUsed": "토큰 사용",
+      "unit": "건"
+    },
+    "actions": {
+      "logout": "로그아웃",
+      "withdraw": "회원 탈퇴"
+    }
+  },
+  "shop": {
+    "title": "토큰 충전소",
+    "starter": "스타터",
+    "pro": "프로",
+    "business": "비즈니스"
+  }
+}

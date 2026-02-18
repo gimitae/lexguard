@@ -1,0 +1,389 @@
+{
+  "header": {
+    "logo": "LexGuard",
+    "menu": {
+      "home": "Home",
+      "consultation": "Expert Consultation",
+      "terms": "Terms of Service",
+      "support": "Support"
+    },
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "landing": {
+    "hero": {
+      "title": "Find Contract Risks",
+      "titleHighlight": "in 3 Minutes",
+      "subtitle1": "Upload your file",
+      "subtitle2": "and instantly receive AI-powered risk analysis results.",
+      "securityBadge": "All documents are encrypted and destroyed immediately after analysis."
+    },
+    "upload": {
+      "title": "Drag and drop or click to upload",
+      "subtitle": "Maximum 20MB",
+      "button": "Browse Files",
+      "choose": "Choose File",
+      "changeFile": "Click to select another file"
+    },
+    "features": {
+      "title": "Law-Based",
+      "titleBold": "Accurate Revision Guide",
+      "list": [
+        "Instant Red Flag Identification",
+        "Legal Basis with Case Law Data",
+        "One-Click Alternative Clause Copy"
+      ]
+    },
+    "lawfirms": {
+      "title": "Need help with 1:1 expert consultation?",
+      "subtitle1": "Our legal AI will directly review your contract",
+      "subtitle2": "and correct any risks.",
+      "cta": "Request Expert Consultation",
+      "stats": {
+        "lawyers": "Number of Customers Helped",
+        "lawyersCount": "120+",
+        "lawyersDesc": "Contract-related assistance",
+        "rating": "Average Satisfaction",
+        "ratingScore": "4.9",
+        "ratingDesc": "Real reviews from 100+ clients",
+        "resolution": "Contract Revision Satisfaction Rate",
+        "resolutionRate": "95%",
+        "resolutionDesc": "Most contracts resolved smoothly"
+      },
+      "consultationNote": "First analysis free"
+    },
+    "trusted": {
+      "label": "TRUSTED BY",
+      "companies": [
+        "LAW-TECH",
+        "SECURE_LABS",
+        "CORP_LEGAL"
+      ]
+    },
+    "howItWorks": {
+      "title": "Get Started in 3 Simple Steps",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Upload Contract",
+          "description": "Drag and drop your PDF, Word, or Image file to upload"
+        },
+        {
+          "number": "2",
+          "title": "Review AI Analysis",
+          "description": "Check risks and recommended revisions within 10 minutes"
+        },
+        {
+          "number": "3",
+          "title": "Save Recommendations",
+          "description": "Download the parts that need revision"
+        }
+      ]
+    },
+    "preview": {
+      "label": "ANALYSIS PREVIEW"
+    }
+  },
+  "analysis": {
+    "loading": {
+      "title": "AI engine is analyzing legal risks",
+      "steps": {
+        "scanning": "Scanning contract...",
+        "comparing": "Comparing with case law database...",
+        "complete": "Risk analysis complete"
+      },
+      "wait": "Please wait..."
+    },
+    "preview": {
+      "title": "Analysis Complete!",
+      "description": "Found {{critical}} critical risks and {{warning}} warning clauses.",
+      "cta": "View Results for Free"
+    },
+    "result": {
+      "critical": "Critical",
+      "warning": "Warning",
+      "download": "Download Modified Contract (.docx)"
+    }
+  },
+  "lawfirms": {
+    "title": "Professional Legal Consultation",
+    "subtitle": "Get 1-on-1 consultation with expert lawyers based on your contract analysis results",
+    "search": "Search law firm name or practice area...",
+    "filters": {
+      "all": "All",
+      "labor": "Labor Law",
+      "contract": "Contract Law",
+      "civil": "Civil Litigation"
+    },
+    "consultation": "Request Consultation",
+    "consultationFee": "Fee",
+    "consultationAlert": "Consultation request with {{firmName}} will be available soon.",
+    "stats": {
+      "experience": "Experience",
+      "cases": "Cases",
+      "casesUnit": " cases",
+      "location": "Location",
+      "responseTime": "Response Time"
+    },
+    "cta": {
+      "title": "Can't find the right expert?",
+      "description": "We'll recommend the best legal expert suited to your situation",
+      "button": "Get Personalized Recommendation"
+    }
+  },
+  "support": {
+    "title": "Customer Support",
+    "subtitle": "How can we help you? Feel free to contact us anytime.",
+    "form": {
+      "title": "Contact Us",
+      "name": "Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "example@email.com",
+      "category": "Category",
+      "message": "Message",
+      "messagePlaceholder": "Please enter your inquiry...",
+      "submit": "Submit",
+      "successMessage": "Your inquiry has been submitted. We will respond shortly."
+    },
+    "categories": {
+      "general": "General Inquiry",
+      "technical": "Technical Support",
+      "billing": "Billing/Refund",
+      "partnership": "Partnership"
+    },
+    "contact": {
+      "email": {
+        "title": "Email",
+        "value": "support@barungyeyak.com",
+        "time": "Response within 24 hours"
+      },
+      "kakao": {
+        "title": "KakaoTalk",
+        "value": "@barungyeyak",
+        "time": "Weekdays 09:00 - 18:00"
+      },
+      "phone": {
+        "title": "Phone",
+        "value": "1588-0000",
+        "time": "Weekdays 09:00 - 18:00"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekday": "Weekdays: 09:00 - 18:00",
+        "weekend": "Weekends & Holidays: Closed"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How accurate is the contract analysis?",
+          "answer": "The AI model has been trained on legal precedents and statutory data, detecting all potentially suspicious risks. However, we recommend consulting a qualified attorney for final legal judgment."
+        },
+        {
+          "question": "Are the uploaded contracts secure?",
+          "answer": "All documents are permanently deleted immediately after analysis. Your personal information and contract contents are strictly protected."
+        },
+        {
+          "question": "Can I download the analysis results?",
+          "answer": "Yes. Once the analysis is complete, you can download the results in HTML format, including the number of issues found, which laws are violated, and recommendations."
+        }
+      ]
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last Updated: January 1, 2026",
+    "sections": {
+      "article1": {
+        "title": "Article 1 (Purpose)",
+        "content": "These terms aim to stipulate the rights, obligations, responsibilities, and other necessary matters between the Company and users regarding the use of AI-based contract analysis services (hereinafter referred to as \"Service\") provided by BarunGyeyak (hereinafter referred to as \"Company\")."
+      },
+      "article2": {
+        "title": "Article 2 (Membership Registration)",
+        "content1": "① Membership registration is concluded when a user agrees to the terms and applies for membership, and the Company accepts such application.",
+        "content2": "② The Company may refuse to accept or terminate the service agreement for applications that fall under any of the following:",
+        "items": [
+          "Use of another person's name",
+          "Provision of false information",
+          "Failure to meet other membership application requirements set by the Company"
+        ]
+      },
+      "article3": {
+        "title": "Article 3 (Service Provision)",
+        "content": "① The Company provides the following services:",
+        "services": [
+          "AI-based contract risk analysis",
+          "Connection to legal expert consultation",
+          "Contract revision suggestions",
+          "Other services developed or provided through partnership agreements by the Company"
+        ]
+      },
+      "article4": {
+        "title": "Article 4 (Service Limitations and Disclaimers)",
+        "content1": "① All analysis results, revision suggestions, and advice provided by this Service are for reference purposes only and should not be interpreted as legal advice or opinions.",
+        "content2": "② Users acknowledge that they bear full responsibility for any modifications to contracts or decisions made based on the analysis results of this Service.",
+        "content3": "③ The Company assumes no responsibility for any direct or indirect damages, contractual disputes, or legal liabilities arising from the use of the Service.",
+        "content4": "④ For accurate legal advice, we strongly recommend consulting with a qualified lawyer or legal professional."
+      }
+    },
+    "placeholder": "📄 Detailed terms will be added after backend integration",
+    "contact": {
+      "title": "Inquiries",
+      "description": "For inquiries regarding the terms of service, please contact us through customer support."
+    }
+  },
+  "auth": {
+    "loginTitle": "Log In",
+    "signupTitle": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "Password (6+ chars)",
+    "loginButton": "Log In",
+    "signupButton": "Sign Up",
+    "close": "Close",
+    "noAccount": "Don't have an account?",
+    "moveToSignup": "Sign up here",
+    "loginError": "Invalid email or password.",
+    "signupSuccess": "Welcome! 5 tokens have been added to your account.",
+    "signupFail": "Sign up failed: "
+  },
+  "signup": {
+    "title": "Sign Up",
+    "subtitle": "Please agree to the terms to use the service",
+    "button": "Sign Up",
+    "skipForNow": "Skip for now",
+    "accountInfo": "Account Information",
+    "accountSubtitle": "Please enter your email and password",
+    "agreements": {
+      "all": "Agree to all",
+      "termsPrefix": "[Required]",
+      "termsLink": "Terms of Service",
+      "termsSuffix": "agreement",
+      "privacyPrefix": "[Required]",
+      "privacyLink": "Privacy Policy",
+      "privacySuffix": "agreement",
+      "age": "[Required] I am 14 years or older",
+      "marketing": "[Required] Marketing Information",
+      "notice": "Please agree to all required items"
+    }
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "errors": {
+    "fileTooBig": "File size cannot exceed 20MB.",
+    "invalidFileType": "Only PDF, DOCX, or Image files are allowed.",
+    "noFile": "Please select a file.",
+    "uploadFailed": "File upload failed. Please try again.",
+    "analysisFailed": "An error occurred during analysis. Please try again."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "article1": {
+      "title": "Article 1 (Purpose of Collection and Use of Personal Information)",
+      "content": "The Company processes personal information for the following purposes. The personal information being processed will not be used for purposes other than the following, and if the purpose of use changes, necessary measures will be implemented, such as obtaining separate consent in accordance with the Personal Information Protection Act.",
+      "item1": "Membership registration and management: Confirmation of intention to join, provision of membership services, identification and authentication",
+      "item2": "Service provision: Provision of contract analysis services, content provision, customized service provision",
+      "item3": "Marketing and advertising: Development of new services and provision of customized services, provision of event information and advertising information"
+    },
+    "article2": {
+      "title": "Article 2 (Items of Personal Information Collected)",
+      "content": "The Company collects the following personal information to provide services.",
+      "required": "Required Collection Items",
+      "requiredItem1": "Email address",
+      "requiredItem2": "Password (encrypted storage)",
+      "requiredItem3": "Service usage records, access logs, cookies, access IP information",
+      "optional": "Optional Collection Items",
+      "optionalItem1": "Name, contact information (when applying for consultation)"
+    },
+    "article3": {
+      "title": "Article 3 (Retention and Use Period of Personal Information)",
+      "content": "In principle, the Company destroys the information without delay after the purpose of collection and use of personal information is achieved. However, the following information is retained for the period specified below for the reasons stated.",
+      "item1": "Upon membership withdrawal: Immediate deletion upon withdrawal",
+      "item2": "Retention according to relevant laws: Retained for a certain period according to relevant laws such as the E-Commerce Act and the Communications Secrets Protection Act",
+      "item3": "Contract analysis data: Immediately encrypted and destroyed after analysis completion"
+    },
+    "article4": {
+      "title": "Article 4 (Provision of Personal Information to Third Parties)",
+      "content": "In principle, the Company processes users' personal information within the scope specified in Article 1 and does not process beyond the original scope or provide it to third parties without the user's prior consent. However, exceptions are made in the following cases.",
+      "item1": "When the user has consented in advance",
+      "item2": "When required by investigative agencies according to procedures and methods defined by law for investigation purposes"
+    },
+    "article5": {
+      "title": "Article 5 (Procedures and Methods for Destroying Personal Information)",
+      "content": "In principle, the Company destroys personal information without delay when the purpose of processing personal information is achieved.",
+      "procedure": "Destruction Procedure",
+      "procedureDesc": "Information entered by users is transferred to a separate DB after the purpose is achieved (separate documents in case of paper) and stored for a certain period according to internal policies and other relevant laws, or destroyed immediately.",
+      "method": "Destruction Method",
+      "methodItem1": "Electronic file format: Permanently deleted in an unrecoverable manner",
+      "methodItem2": "Paper documents: Shredded or incinerated"
+    },
+    "article6": {
+      "title": "Article 6 (Rights and Obligations of Data Subjects and Methods of Exercise)",
+      "content": "Users can exercise the following rights as personal information subjects.",
+      "item1": "Request to view personal information",
+      "item2": "Request correction in case of errors",
+      "item3": "Request deletion",
+      "item4": "Request suspension of processing"
+    },
+    "article7": {
+      "title": "Article 7 (Personal Information Protection Officer)",
+      "content": "The Company designates a Personal Information Protection Officer as follows to oversee personal information processing and to handle complaints and remedy damages related to personal information processing.",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "article8": {
+      "title": "Article 8 (Changes to Privacy Policy)",
+      "content": "This privacy policy is applied from the effective date, and if there are additions, deletions, or corrections to changes according to laws and policies, they will be announced through notices 7 days before the implementation of the changes."
+    },
+    "announcement": "Announcement Date: February 16, 2026",
+    "effective": "Effective Date: February 16, 2026"
+  },
+  "mypage": {
+    "title": "My Page",
+    "token": {
+      "title": "Available Tokens",
+      "charge": "Top Up",
+      "history": "Usage History"
+    },
+    "profile": {
+      "title": "Account Info",
+      "email": "Email Address",
+      "joinDate": "Joined",
+      "plan": "Current Plan",
+      "manage": "Settings"
+    },
+    "statistics": {
+      "title": "Usage Statistics",
+      "analyzed": "Analyses Completed",
+      "risksFound": "Risks Detected",
+      "tokensUsed": "Tokens Used",
+      "unit": "case(s)"
+    },
+    "actions": {
+      "logout": "Log Out",
+      "withdraw": "Delete Account"
+    }
+  },
+  "shop": {
+    "title": "Token Shop",
+    "starter": "Starter",
+    "pro": "Pro",
+    "business": "Business"
+  }
+}
