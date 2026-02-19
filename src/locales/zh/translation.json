@@ -1,0 +1,390 @@
+{
+  "header": {
+    "logo": "LexGuard",
+    "menu": {
+      "home": "首页",
+      "consultation": "专家咨询",
+      "terms": "服务条款",
+      "support": "客户支持"
+    },
+    "login": "登录",
+    "logout": "退出登录"
+  },
+  "landing": {
+    "hero": {
+      "title": "10分钟内",
+      "titleHighlight": "发现合同风险",
+      "subtitle1": "上传您的文件，",
+      "subtitle2": "立即获取AI驱动的风险分析结果。",
+      "securityBadge": "所有文档均经过加密处理，并在分析后立即销毁。"
+    },
+    "upload": {
+      "title": "拖放或点击上传",
+      "subtitle": "最大支持 20MB",
+      "button": "浏览文件",
+      "choose": "选择文件",
+      "changeFile": "点击选择其他文件"
+    },
+    "features": {
+      "title": "基于法律的",
+      "titleBold": "精准修改指南",
+      "list": [
+        "即时识别红旗风险",
+        "基于判例数据的法律依据",
+        "一键复制替代条款"
+      ]
+    },
+    "lawfirms": {
+      "title": "需要 1:1 专家咨询吗？",
+      "subtitle1": "我们的法律 AI 将直接审核您的合同",
+      "subtitle2": "并修正所有风险。",
+      "cta": "申请专家咨询",
+      "stats": {
+        "lawyers": "已帮助客户数",
+        "lawyersCount": "120+",
+        "lawyersDesc": "合同相关咨询",
+        "rating": "平均满意度",
+        "ratingScore": "4.9",
+        "ratingDesc": "来自100多名真实客户的评价",
+        "resolution": "合同修订满意度",
+        "resolutionRate": "95%",
+        "resolutionDesc": "大部分合同均顺利解决"
+      },
+      "consultationNote": "首次分析免费"
+    },
+    "trusted": {
+      "label": "合作伙伴",
+      "companies": [
+        "LAW-TECH",
+        "SECURE_LABS",
+        "CORP_LEGAL"
+      ]
+    },
+    "howItWorks": {
+      "title": "简单 3 步即可开始",
+      "steps": [
+        {
+          "number": "1",
+          "title": "上传合同",
+          "description": "拖放您的 PDF、Word 或图片文件进行上传"
+        },
+        {
+          "number": "2",
+          "title": "查看 AI 分析",
+          "description": "在 10 分钟内检查风险和建议的修订内容"
+        },
+        {
+          "number": "3",
+          "title": "保存建议",
+          "description": "下载需要修订的部分"
+        }
+      ]
+    },
+    "preview": {
+      "label": "分析预览"
+    }
+  },
+  "analysis": {
+    "loading": {
+      "title": "AI 引擎正在分析法律风险",
+      "steps": {
+        "scanning": "正在扫描合同...",
+        "comparing": "正在与判例数据库进行对比...",
+        "complete": "风险分析完成"
+      },
+      "wait": "请稍候..."
+    },
+    "preview": {
+      "title": "分析完成！",
+      "description": "发现 {{critical}} 个关键风险和 {{warning}} 个警告条款。",
+      "cta": "免费查看结果"
+    },
+    "result": {
+      "critical": "关键",
+      "warning": "警告",
+      "download": "下载修订后的合同 (.docx)"
+    }
+  },
+  "lawfirms": {
+    "title": "专业法律咨询",
+    "subtitle": "根据您的合同分析结果，与专家律师进行 1 对 1 咨询",
+    "search": "搜索律所名称或业务领域...",
+    "filters": {
+      "all": "全部",
+      "labor": "劳动法",
+      "contract": "合同法",
+      "civil": "民事诉讼"
+    },
+    "consultation": "申请咨询",
+    "consultationFee": "费用",
+    "consultationAlert": "即将开放与 {{firmName}} 的咨询服务。",
+    "stats": {
+      "experience": "经验",
+      "cases": "案例",
+      "casesUnit": " 件",
+      "location": "地点",
+      "responseTime": "响应时间"
+    },
+    "cta": {
+      "title": "找不到合适的专家？",
+      "description": "我们将根据您的情况推荐最适合的法律专家",
+      "button": "获取个性化推荐"
+    }
+  },
+  "support": {
+    "title": "客户支持",
+    "subtitle": "有什么可以帮您的？请随时联系我们。",
+    "form": {
+      "title": "联系我们",
+      "name": "姓名",
+      "namePlaceholder": "王小明",
+      "email": "电子邮箱",
+      "emailPlaceholder": "example@email.com",
+      "category": "类别",
+      "message": "留言内容",
+      "messagePlaceholder": "请输入您的问题...",
+      "submit": "提交",
+      "successMessage": "您的咨询已提交。我们将尽快回复。"
+    },
+    "categories": {
+      "general": "一般咨询",
+      "technical": "技术支持",
+      "billing": "账单/退款",
+      "partnership": "商务合作"
+    },
+    "contact": {
+      "email": {
+        "title": "电子邮箱",
+        "value": "support@barungyeyak.com",
+        "time": "24小时内回复"
+      },
+      "kakao": {
+        "title": "KakaoTalk",
+        "value": "@barungyeyak",
+        "time": "工作日 09:00 - 18:00"
+      },
+      "phone": {
+        "title": "电话",
+        "value": "1588-0000",
+        "time": "工作日 09:00 - 18:00"
+      },
+      "hours": {
+        "title": "营业时间",
+        "weekday": "工作日：09:00 - 18:00",
+        "weekend": "周末及节假日：休息"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "question": "合同分析的准确度如何？",
+          "answer": "该 AI 模型基于法律判例和法规数据进行训练，可检测所有潜在的可疑风险。但是，我们建议您咨询专业律师以获得最终的法律判断。"
+        },
+        {
+          "question": "上传的合同安全吗？",
+          "answer": "所有文档在分析后都会立即永久删除。您的个人信息和合同内容受到严格保护。"
+        },
+        {
+          "question": "我可以下载分析结果吗？",
+          "answer": "是的。分析完成后，您可以下载 HTML 格式的结果，其中包括发现的问题数量、违反的法律条款以及修订建议。"
+        }
+      ]
+    }
+  },
+  "terms": {
+    "title": "服务条款",
+    "lastUpdated": "最后更新日期：2026年1月1일",
+    "sections": {
+      "article1": {
+        "title": "第1条（目的）",
+        "content": "本条款旨在规定 BarunGyeyak（以下简称“公司”）与用户之间，关于使用由公司提供的基于 AI 的合同分析服务（以下简称“服务”）时的权利、义务、责任以及其他必要事项。"
+      },
+      "article2": {
+        "title": "第2条（会员注册）",
+        "content1": "① 用户同意本条款并申请注册，经公司批准后，会员注册即告完成。",
+        "content2": "② 对于符合以下任何一种情况的申请，公司可以拒绝批准或终止服务协议：",
+        "items": [
+          "冒用他人名义",
+          "提供虚假信息",
+          "不符合公司规定的其他会员申请条件"
+        ]
+      },
+      "article3": {
+        "title": "第3条（服务内容）",
+        "content": "① 公司提供以下服务：",
+        "services": [
+          "基于 AI 的合同风险分析",
+          "对接法律专家咨询",
+          "合同修订建议",
+          "公司开发或通过合作协议提供的其他服务"
+        ]
+      },
+      "article4": {
+        "title": "第4条（服务限制及免责声明）",
+        "content1": "① 本服务提供的所有分析结果、修订建议及意见仅供参考，不应被视为法律咨询或法律意见。",
+        "content2": "② 用户承认，根据本服务分析结果进行的任何合同修改或决策，均由其本人承担全部责任。",
+        "content3": "③ 公司对因使用本服务而产生的任何直接或间接损害、合同纠纷或法律责任不承担任何责任。",
+        "content4": "④ 为了获得准确的法律建议，我们强烈建议您咨询合格的律师或法律专业人士。"
+      }
+    },
+    "placeholder": "📄 详细条款将在后端集成后添加",
+    "contact": {
+      "title": "咨询",
+      "description": "有关服务条款的咨询，请通过客户支持与我们联系。"
+    }
+  },
+  "auth": {
+    "loginTitle": "登录",
+    "signupTitle": "注册",
+    "email": "电子邮箱",
+    "password": "密码",
+    "passwordPlaceholder": "密码（6位以上）",
+    "loginButton": "登录",
+    "signupButton": "注册",
+    "close": "关闭",
+    "noAccount": "还没有账号？",
+    "moveToSignup": "点击此处注册",
+    "loginError": "邮箱或密码无效。",
+    "signupSuccess": "欢迎！您的账户已获赠 5 个代币。",
+    "signupFail": "注册失败： "
+  },
+  "signup": {
+    "title": "注册",
+    "subtitle": "请同意条款以使用服务",
+    "button": "注册",
+    "skipForNow": "稍后进行",
+    "accountInfo": "账户信息",
+    "accountSubtitle": "请输入您的邮箱和密码",
+    "agreements": {
+      "all": "全部同意",
+      "termsPrefix": "[必选]",
+      "termsLink": "服务条款",
+      "termsSuffix": "同意",
+      "privacyPrefix": "[必选]",
+      "privacyLink": "隐私政策",
+      "privacySuffix": "同意",
+      "age": "[必选] 我已年满 14 周岁",
+      "marketing": "[可选] 接收营销信息",
+      "notice": "请勾选所有必选项"
+    }
+  },
+  "common": {
+    "yes": "是",
+    "no": "否",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "loading": "加载中...",
+    "error": "发生错误"
+  },
+  "errors": {
+    "fileTooBig": "文件大小不能超过 20MB。",
+    "invalidFileType": "仅支持 PDF、DOCX 或图片文件。",
+    "noFile": "请选择文件。",
+    "uploadFailed": "文件上传失败。请重试。",
+    "analysisFailed": "分析过程中发生错误。请重试。"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "lastUpdated": "最后更新日期",
+    "article1": {
+      "title": "第1条（个人信息收集及使用目的）",
+      "content": "公司出于以下目的处理个人信息。处理中的个人信息不会用于以下目的以外的其他用途，如果使用目的发生变更，将根据《个人信息保护法》采取获取独立同意等必要措施。",
+      "item1": "会员注册及管理：确认入会意愿，提供会员制服务，身份识别及认证",
+      "item2": "服务提供：提供合同分析服务，内容提供，提供定制化服务",
+      "item3": "营销及广告：开发新服务及提供定制化服务，提供活动信息及广告信息"
+    },
+    "article2": {
+      "title": "第2条（收集的个人信息项目）",
+      "content": "公司为提供服务而收集以下个人信息。",
+      "required": "必选收集项目",
+      "requiredItem1": "电子邮箱地址",
+      "requiredItem2": "密码（加密存储）",
+      "requiredItem3": "服务使用记录、访问日志、Cookie、访问 IP 信息",
+      "optional": "可选收集项目",
+      "optionalItem1": "姓名、联系方式（申请咨询时）"
+    },
+    "article3": {
+      "title": "第3条（个人信息的保留及使用期限）",
+      "content": "原则上，公司在个人信息收集及使用目的达成后，会立即销毁相关信息。但由于以下原因，下列信息将在规定的期限内保留。",
+      "item1": "注销会员时：注销后立即删除",
+      "item2": "根据相关法律保留：根据《电子商务法》、《通信秘密保护法》等相关法律在一定期限内保留",
+      "item3": "合同分析数据：分析完成后立即加密并销毁"
+    },
+    "article4": {
+      "title": "第4条（向第三方提供个人信息）",
+      "content": "原则上，公司在第1条规定的范围内处理用户的个人信息，未经用户事先同意，不会超出原定范围处理或提供给第三方。但以下情况除外。",
+      "item1": "用户事先同意时",
+      "item2": "调查机关根据法律规定的程序和方法，为调查目的提出要求时"
+    },
+    "article5": {
+      "title": "第5条（个人信息销毁程序及方法）",
+      "content": "原则上，公司在个人信息处理目的达成后，会立即销毁相关个人信息。",
+      "procedure": "销毁程序",
+      "procedureDesc": "用户输入的信息在目的达成后会转移到独立的数据库（纸质文档则存放到独立的档案柜中），根据内部政策及其他相关法律在一定期限内保留或立即销毁。",
+      "method": "销毁方法",
+      "methodItem1": "电子文件格式：以无法恢复的手段永久删除",
+      "methodItem2": "纸质文档：碎纸机粉碎或焚烧"
+    },
+    "article6": {
+      "title": "第6条（信息主体的权利、义务及其行使方法）",
+      "content": "用户作为个人信息主体，可以行使以下权利。",
+      "item1": "要求查阅个人信息",
+      "item2": "发现错误时要求更正",
+      "item3": "要求删除",
+      "item4": "要求停止处理"
+    },
+    "article7": {
+      "title": "第7条（个人信息保护负责人）",
+      "content": "公司指定以下个人信息保护负责人，负责全面统筹个人信息处理相关工作，并处理与个人信息处理相关的申诉及损害救济。",
+      "name": "姓名",
+      "email": "电子邮箱",
+      "phone": "电话"
+    },
+    "article8": {
+      "title": "第8条（隐私政策变更）",
+      "content": "本隐私政策自生效日起适用，如因法律或政策变更而增加、删除或修正内容，将在变更实施 7 日前通过公告告知。"
+    },
+    "announcement": "公告日期：2026年2月16일",
+    "effective": "生效日期：2026年2月16일"
+  },
+  "mypage": {
+    "title": "个人中心",
+    "token": {
+      "title": "可用代币",
+      "charge": "充值",
+      "history": "使用记录"
+    },
+    "profile": {
+      "title": "账户信息",
+      "email": "电子邮箱",
+      "joinDate": "加入日期",
+      "plan": "当前方案",
+      "manage": "设置"
+    },
+    "statistics": {
+      "title": "使用统计",
+      "analyzed": "已完成分析",
+      "risksFound": "检测到的风险",
+      "tokensUsed": "已消耗代币",
+      "unit": "件"
+    },
+    "actions": {
+      "logout": "退出登录",
+      "withdraw": "注销账户"
+    }
+  },
+  "shop": {
+    "title": "代币商店",
+    "starter": "入门版",
+    "pro": "专业版",
+    "business": "企业版"
+  }
+}
+

@@ -1,0 +1,390 @@
+{
+  "header": {
+    "logo": "LexGuard",
+    "menu": {
+      "home": "Trang chủ",
+      "consultation": "Tư vấn chuyên gia",
+      "terms": "Điều khoản dịch vụ",
+      "support": "Hỗ trợ khách hàng"
+    },
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất"
+  },
+  "landing": {
+    "hero": {
+      "title": "Tìm kiếm rủi ro hợp đồng",
+      "titleHighlight": "trong 10 phút",
+      "subtitle1": "Tải lên tệp của bạn",
+      "subtitle2": "và nhận ngay kết quả phân tích rủi ro bằng AI.",
+      "securityBadge": "Tất cả tài liệu đều được mã hóa và hủy ngay sau khi phân tích."
+    },
+    "upload": {
+      "title": "Kéo thả hoặc nhấp để tải lên",
+      "subtitle": "Tối đa 20MB",
+      "button": "Chọn tệp",
+      "choose": "Chọn tệp",
+      "changeFile": "Nhấp để chọn tệp khác"
+    },
+    "features": {
+      "title": "Dựa trên luật pháp",
+      "titleBold": "Hướng dẫn sửa đổi chính xác",
+      "list": [
+        "Nhận diện rủi ro ngay lập tức",
+        "Cơ sở pháp lý dựa trên dữ liệu án lệ",
+        "Sao chép điều khoản thay thế chỉ với một cú nhấp"
+      ]
+    },
+    "lawfirms": {
+      "title": "Bạn cần tư vấn 1:1 với chuyên gia?",
+      "subtitle1": "AI pháp lý của chúng tôi sẽ trực tiếp xem xét hợp đồng của bạn",
+      "subtitle2": "và khắc phục mọi rủi ro.",
+      "cta": "Yêu cầu tư vấn chuyên gia",
+      "stats": {
+        "lawyers": "Số lượng khách hàng đã hỗ trợ",
+        "lawyersCount": "120+",
+        "lawyersDesc": "Hỗ trợ liên quan đến hợp đồng",
+        "rating": "Mức độ hài lòng trung bình",
+        "ratingScore": "4.9",
+        "ratingDesc": "Đánh giá thực tế từ hơn 100 khách hàng",
+        "resolution": "Tỷ lệ hài lòng khi sửa đổi hợp đồng",
+        "resolutionRate": "95%",
+        "resolutionDesc": "Hầu hết các hợp đồng đều được giải quyết ổn thỏa"
+      },
+      "consultationNote": "Miễn phí phân tích lần đầu"
+    },
+    "trusted": {
+      "label": "ĐỐI TÁC TIN CẬY",
+      "companies": [
+        "LAW-TECH",
+        "SECURE_LABS",
+        "CORP_LEGAL"
+      ]
+    },
+    "howItWorks": {
+      "title": "Bắt đầu với 3 bước đơn giản",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Tải hợp đồng lên",
+          "description": "Kéo thả tệp PDF, Word hoặc hình ảnh để tải lên"
+        },
+        {
+          "number": "2",
+          "title": "Xem phân tích AI",
+          "description": "Kiểm tra rủi ro và các sửa đổi đề xuất trong vòng 10 phút"
+        },
+        {
+          "number": "3",
+          "title": "Lưu các đề xuất",
+          "description": "Tải xuống các phần cần sửa đổi"
+        }
+      ]
+    },
+    "preview": {
+      "label": "XEM TRƯỚC PHÂN TÍCH"
+    }
+  },
+  "analysis": {
+    "loading": {
+      "title": "Công cụ AI đang phân tích rủi ro pháp lý",
+      "steps": {
+        "scanning": "Đang quét hợp đồng...",
+        "comparing": "Đang đối chiếu với cơ sở dữ liệu án lệ...",
+        "complete": "Phân tích rủi ro hoàn tất"
+      },
+      "wait": "Vui lòng đợi..."
+    },
+    "preview": {
+      "title": "Phân tích hoàn tất!",
+      "description": "Tìm thấy {{critical}} rủi ro nghiêm trọng và {{warning}} điều khoản cảnh báo.",
+      "cta": "Xem kết quả miễn phí"
+    },
+    "result": {
+      "critical": "Nghiêm trọng",
+      "warning": "Cảnh báo",
+      "download": "Tải xuống hợp đồng đã sửa đổi (.docx)"
+    }
+  },
+  "lawfirms": {
+    "title": "Tư vấn pháp lý chuyên nghiệp",
+    "subtitle": "Nhận tư vấn 1-1 với luật sư chuyên gia dựa trên kết quả phân tích hợp đồng của bạn",
+    "search": "Tìm kiếm tên công ty luật hoặc lĩnh vực chuyên môn...",
+    "filters": {
+      "all": "Tất cả",
+      "labor": "Luật lao động",
+      "contract": "Luật hợp đồng",
+      "civil": "Tố tụng dân sự"
+    },
+    "consultation": "Yêu cầu tư vấn",
+    "consultationFee": "Phí",
+    "consultationAlert": "Dịch vụ tư vấn với {{firmName}} sẽ sớm ra mắt.",
+    "stats": {
+      "experience": "Kinh nghiệm",
+      "cases": "Số vụ việc",
+      "casesUnit": " vụ",
+      "location": "Địa điểm",
+      "responseTime": "Thời gian phản hồi"
+    },
+    "cta": {
+      "title": "Không tìm thấy chuyên gia phù hợp?",
+      "description": "Chúng tôi sẽ đề xuất chuyên gia pháp lý tốt nhất phù hợp với tình huống của bạn",
+      "button": "Nhận đề xuất cá nhân hóa"
+    }
+  },
+  "support": {
+    "title": "Hỗ trợ khách hàng",
+    "subtitle": "Chúng tôi có thể giúp gì cho bạn? Đừng ngần ngại liên hệ với chúng tôi.",
+    "form": {
+      "title": "Liên hệ với chúng tôi",
+      "name": "Họ tên",
+      "namePlaceholder": "Nguyễn Văn A",
+      "email": "Email",
+      "emailPlaceholder": "example@email.com",
+      "category": "Danh mục",
+      "message": "Nội dung",
+      "messagePlaceholder": "Vui lòng nhập câu hỏi của bạn...",
+      "submit": "Gửi",
+      "successMessage": "Yêu cầu của bạn đã được gửi. Chúng tôi sẽ phản hồi sớm nhất có thể."
+    },
+    "categories": {
+      "general": "Câu hỏi chung",
+      "technical": "Hỗ trợ kỹ thuật",
+      "billing": "Thanh toán/Hoàn tiền",
+      "partnership": "Hợp tác"
+    },
+    "contact": {
+      "email": {
+        "title": "Email",
+        "value": "support@barungyeyak.com",
+        "time": "Phản hồi trong vòng 24 giờ"
+      },
+      "kakao": {
+        "title": "KakaoTalk",
+        "value": "@barungyeyak",
+        "time": "Ngày thường 09:00 - 18:00"
+      },
+      "phone": {
+        "title": "Điện thoại",
+        "value": "1588-0000",
+        "time": "Ngày thường 09:00 - 18:00"
+      },
+      "hours": {
+        "title": "Giờ làm việc",
+        "weekday": "Ngày thường: 09:00 - 18:00",
+        "weekend": "Cuối tuần & Ngày lễ: Nghỉ"
+      }
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "items": [
+        {
+          "question": "Phân tích hợp đồng chính xác đến mức nào?",
+          "answer": "Mô hình AI đã được đào tạo dựa trên các án lệ và dữ liệu luật định, có khả năng phát hiện tất cả các rủi ro đáng ngờ. Tuy nhiên, chúng tôi khuyên bạn nên tham khảo ý kiến luật sư có trình độ để có phán quyết pháp lý cuối cùng."
+        },
+        {
+          "question": "Các hợp đồng tải lên có được bảo mật không?",
+          "answer": "Tất cả tài liệu sẽ được xóa vĩnh viễn ngay sau khi phân tích. Thông tin cá nhân và nội dung hợp đồng của bạn được bảo vệ nghiêm ngặt."
+        },
+        {
+          "question": "Tôi có thể tải xuống kết quả phân tích không?",
+          "answer": "Có. Sau khi phân tích xong, bạn có thể tải xuống kết quả dưới định dạng HTML, bao gồm số lượng vấn đề tìm thấy, các luật bị vi phạm và các đề xuất."
+        }
+      ]
+    }
+  },
+  "terms": {
+    "title": "Điều khoản dịch vụ",
+    "lastUpdated": "Cập nhật lần cuối: Ngày 1 tháng 1 năm 2026",
+    "sections": {
+      "article1": {
+        "title": "Điều 1 (Mục đích)",
+        "content": "Các điều khoản này nhằm quy định quyền, nghĩa vụ, trách nhiệm và các vấn đề cần thiết khác giữa Công ty và người dùng liên quan đến việc sử dụng dịch vụ phân tích hợp đồng dựa trên AI (sau đây gọi là \"Dịch vụ\") do BarunGyeyak (sau đây gọi là \"Công ty\") cung cấp."
+      },
+      "article2": {
+        "title": "Điều 2 (Đăng ký thành viên)",
+        "content1": "① Việc đăng ký thành viên được hoàn tất khi người dùng đồng ý với các điều khoản và đăng ký tham gia, và Công ty chấp nhận đăng ký đó.",
+        "content2": "② Công ty có thể từ chối chấp nhận hoặc chấm dứt thỏa thuận dịch vụ đối với các trường hợp sau:",
+        "items": [
+          "Sử dụng tên của người khác",
+          "Cung cấp thông tin sai lệch",
+          "Không đáp ứng các yêu cầu đăng ký thành viên khác do Công ty quy định"
+        ]
+      },
+      "article3": {
+        "title": "Điều 3 (Cung cấp dịch vụ)",
+        "content": "① Công ty cung cấp các dịch vụ sau:",
+        "services": [
+          "Phân tích rủi ro hợp đồng dựa trên AI",
+          "Kết nối tư vấn chuyên gia pháp lý",
+          "Đề xuất sửa đổi hợp đồng",
+          "Các dịch vụ khác được phát triển hoặc cung cấp thông qua các thỏa thuận hợp tác của Công ty"
+        ]
+      },
+      "article4": {
+        "title": "Điều 4 (Giới hạn dịch vụ và Miễn trừ trách nhiệm)",
+        "content1": "① Tất cả các kết quả phân tích, đề xuất sửa đổi và lời khuyên do Dịch vụ này cung cấp chỉ mang tính chất tham khảo và không được hiểu là lời khuyên hoặc ý kiến pháp lý.",
+        "content2": "② Người dùng thừa nhận rằng họ chịu hoàn toàn trách nhiệm về bất kỳ sửa đổi nào đối với hợp đồng hoặc quyết định được đưa ra dựa trên kết quả phân tích của Dịch vụ này.",
+        "content3": "③ Công ty không chịu trách nhiệm về bất kỳ thiệt hại trực tiếp hoặc gián tiếp, tranh chấp hợp đồng hoặc trách nhiệm pháp lý nào phát sinh từ việc sử dụng Dịch vụ.",
+        "content4": "④ Để có lời khuyên pháp lý chính xác, chúng tôi thực sự khuyên bạn nên tham khảo ý kiến của luật sư hoặc chuyên gia pháp lý có trình độ."
+      }
+    },
+    "placeholder": "📄 Các điều khoản chi tiết sẽ được bổ sung sau khi tích hợp backend",
+    "contact": {
+      "title": "Câu hỏi",
+      "description": "Đối với các câu hỏi liên quan đến điều khoản dịch vụ, vui lòng liên hệ với chúng tôi qua bộ phận hỗ trợ khách hàng."
+    }
+  },
+  "auth": {
+    "loginTitle": "Đăng nhập",
+    "signupTitle": "Đăng ký",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "passwordPlaceholder": "Mật khẩu (6+ ký tự)",
+    "loginButton": "Đăng nhập",
+    "signupButton": "Đăng ký",
+    "close": "Đóng",
+    "noAccount": "Chưa có tài khoản?",
+    "moveToSignup": "Đăng ký tại đây",
+    "loginError": "Email hoặc mật khẩu không hợp lệ.",
+    "signupSuccess": "Chào mừng! 5 token đã được thêm vào tài khoản của bạn.",
+    "signupFail": "Đăng ký thất bại: "
+  },
+  "signup": {
+    "title": "Đăng ký",
+    "subtitle": "Vui lòng đồng ý với các điều khoản để sử dụng dịch vụ",
+    "button": "Đăng ký",
+    "skipForNow": "Để sau",
+    "accountInfo": "Thông tin tài khoản",
+    "accountSubtitle": "Vui lòng nhập email và mật khẩu của bạn",
+    "agreements": {
+      "all": "Đồng ý với tất cả",
+      "termsPrefix": "[Bắt buộc]",
+      "termsLink": "Điều khoản dịch vụ",
+      "termsSuffix": "đồng ý",
+      "privacyPrefix": "[Bắt buộc]",
+      "privacyLink": "Chính sách bảo mật",
+      "privacySuffix": "đồng ý",
+      "age": "[Bắt buộc] Tôi từ 14 tuổi trở lên",
+      "marketing": "[Tùy chọn] Thông tin tiếp thị",
+      "notice": "Vui lòng đồng ý với tất cả các mục bắt buộc"
+    }
+  },
+  "common": {
+    "yes": "Có",
+    "no": "Không",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "close": "Đóng",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi"
+  },
+  "errors": {
+    "fileTooBig": "Kích thước tệp không được vượt quá 20MB.",
+    "invalidFileType": "Chỉ cho phép tệp PDF, DOCX hoặc Hình ảnh.",
+    "noFile": "Vui lòng chọn một tệp.",
+    "uploadFailed": "Tải tệp lên thất bại. Vui lòng thử lại.",
+    "analysisFailed": "Đã xảy ra lỗi trong quá trình phân tích. Vui lòng thử lại."
+  },
+  "privacy": {
+    "title": "Chính sách bảo mật",
+    "lastUpdated": "Cập nhật lần cuối",
+    "article1": {
+      "title": "Điều 1 (Mục đích thu thập và sử dụng thông tin cá nhân)",
+      "content": "Công ty xử lý thông tin cá nhân cho các mục đích sau. Thông tin cá nhân đang được xử lý sẽ không được sử dụng cho các mục đích khác ngoài các mục đích sau, và nếu mục đích sử dụng thay đổi, các biện pháp cần thiết sẽ được thực hiện, chẳng hạn như xin ý kiến đồng ý riêng theo Đạo luật Bảo vệ Thông tin Cá nhân.",
+      "item1": "Đăng ký và quản lý thành viên: Xác nhận ý định tham gia, cung cấp dịch vụ thành viên, nhận dạng và xác thực",
+      "item2": "Cung cấp dịch vụ: Cung cấp dịch vụ phân tích hợp đồng, cung cấp nội dung, cung cấp dịch vụ tùy chỉnh",
+      "item3": "Tiếp thị và quảng cáo: Phát triển các dịch vụ mới và cung cấp các dịch vụ tùy chỉnh, cung cấp thông tin sự kiện và thông tin quảng cáo"
+    },
+    "article2": {
+      "title": "Điều 2 (Các mục thông tin cá nhân được thu thập)",
+      "content": "Công ty thu thập các thông tin cá nhân sau để cung cấp dịch vụ.",
+      "required": "Các mục thu thập bắt buộc",
+      "requiredItem1": "Địa chỉ email",
+      "requiredItem2": "Mật khẩu (lưu trữ mã hóa)",
+      "requiredItem3": "Hồ sơ sử dụng dịch vụ, nhật ký truy cập, cookie, thông tin IP truy cập",
+      "optional": "Các mục thu thập tùy chọn",
+      "optionalItem1": "Tên, thông tin liên hệ (khi yêu cầu tư vấn)"
+    },
+    "article3": {
+      "title": "Điều 3 (Thời hạn lưu trữ và sử dụng thông tin cá nhân)",
+      "content": "Về nguyên tắc, Công ty sẽ hủy thông tin ngay sau khi mục đích thu thập và sử dụng thông tin cá nhân được thực hiện. Tuy nhiên, các thông tin sau được lưu trữ trong thời gian quy định dưới đây vì các lý do đã nêu.",
+      "item1": "Khi rút khỏi tư cách thành viên: Xóa ngay lập tức khi rút lui",
+      "item2": "Lưu trữ theo luật liên quan: Được lưu trữ trong một thời gian nhất định theo các luật liên quan như Đạo luật Thương mại Điện tử và Đạo luật Bảo vệ Bí mật Truyền thông",
+      "item3": "Dữ liệu phân tích hợp đồng: Được mã hóa và hủy ngay lập tức sau khi hoàn thành phân tích"
+    },
+    "article4": {
+      "title": "Điều 4 (Cung cấp thông tin cá nhân cho bên thứ ba)",
+      "content": "Về nguyên tắc, Công ty xử lý thông tin cá nhân của người dùng trong phạm vi quy định tại Điều 1 và không xử lý vượt quá phạm vi ban đầu hoặc cung cấp cho bên thứ ba mà không có sự đồng ý trước của người dùng. Tuy nhiên, ngoại lệ được thực hiện trong các trường hợp sau.",
+      "item1": "Khi người dùng đã đồng ý trước",
+      "item2": "Khi có yêu cầu từ các cơ quan điều tra theo các thủ tục và phương pháp do luật pháp quy định cho mục đích điều tra"
+    },
+    "article5": {
+      "title": "Điều 5 (Thủ tục và Phương pháp hủy thông tin cá nhân)",
+      "content": "Về nguyên tắc, Công ty sẽ hủy thông tin cá nhân ngay lập tức khi mục đích xử lý thông tin cá nhân được thực hiện.",
+      "procedure": "Thủ tục hủy",
+      "procedureDesc": "Thông tin do người dùng nhập vào sẽ được chuyển đến một DB riêng sau khi mục đích được thực hiện (tài liệu riêng trong trường hợp bằng giấy) và được lưu trữ trong một thời gian nhất định theo các chính sách nội bộ và các luật liên quan khác, hoặc bị hủy ngay lập tức.",
+      "method": "Phương pháp hủy",
+      "methodItem1": "Định dạng tệp điện tử: Xóa vĩnh viễn bằng cách thức không thể phục hồi",
+      "methodItem2": "Tài liệu giấy: Cắt nhỏ hoặc đốt bỏ"
+    },
+    "article6": {
+      "title": "Điều 6 (Quyền và nghĩa vụ của chủ thể dữ liệu và Phương thức thực hiện)",
+      "content": "Người dùng có thể thực hiện các quyền sau đây với tư cách là chủ thể thông tin cá nhân.",
+      "item1": "Yêu cầu xem thông tin cá nhân",
+      "item2": "Yêu cầu chỉnh sửa trong trường hợp có sai sót",
+      "item3": "Yêu cầu xóa",
+      "item4": "Yêu cầu tạm dừng xử lý"
+    },
+    "article7": {
+      "title": "Điều 7 (Nhân viên bảo vệ thông tin cá nhân)",
+      "content": "Công ty chỉ định Nhân viên bảo vệ thông tin cá nhân như sau để giám sát việc xử lý thông tin cá nhân và giải quyết các khiếu nại cũng như khắc phục thiệt hại liên quan đến việc xử lý thông tin cá nhân.",
+      "name": "Họ tên",
+      "email": "Email",
+      "phone": "Điện thoại"
+    },
+    "article8": {
+      "title": "Điều 8 (Thay đổi chính sách bảo mật)",
+      "content": "Chính sách bảo mật này được áp dụng kể từ ngày có hiệu lực, và nếu có các nội dung bổ sung, xóa bỏ hoặc chỉnh sửa đối với các thay đổi theo luật pháp và chính sách, chúng sẽ được thông báo qua các thông báo 7 ngày trước khi thực hiện các thay đổi."
+    },
+    "announcement": "Ngày thông báo: 16 tháng 2 năm 2026",
+    "effective": "Ngày có hiệu lực: 16 tháng 2 năm 2026"
+  },
+  "mypage": {
+    "title": "Trang của tôi",
+    "token": {
+      "title": "Token khả dụng",
+      "charge": "Nạp thêm",
+      "history": "Lịch sử sử dụng"
+    },
+    "profile": {
+      "title": "Thông tin tài khoản",
+      "email": "Địa chỉ Email",
+      "joinDate": "Ngày tham gia",
+      "plan": "Gói hiện tại",
+      "manage": "Cài đặt"
+    },
+    "statistics": {
+      "title": "Thống kê sử dụng",
+      "analyzed": "Đã hoàn thành phân tích",
+      "risksFound": "Rủi ro phát hiện",
+      "tokensUsed": "Token đã dùng",
+      "unit": "vụ"
+    },
+    "actions": {
+      "logout": "Đăng xuất",
+      "withdraw": "Xóa tài khoản"
+    }
+  },
+  "shop": {
+    "title": "Cửa hàng Token",
+    "starter": "Người mới",
+    "pro": "Chuyên nghiệp",
+    "business": "Doanh nghiệp"
+  }
+}
+

@@ -17,6 +17,8 @@ import { auth, db } from './firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
 
+//const API_BASE_URL = 'http://192.168.0.104:8000';
+
 const API_BASE_URL = 'http://localhost:8000';
 
 const App = () => {

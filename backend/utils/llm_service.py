@@ -123,8 +123,20 @@ def analyze_all_clauses_batch(clauses: list, related_laws_per_clause: list):
                 "end": end_pos,
                 "violation": False,
                 "severity": "DISADVANTAGE",
-                "explanation": "분석 중 오류가 발생했습니다.",
-                "suggestion": "전문가 검토가 필요합니다."
+                "explanation": {
+                    "ko": "분석 중 오류가 발생했습니다.",
+                    "en": "An error occurred during analysis.",
+                    "ja": "分析中にエラーが発生しました。",
+                    "zh": "分析过程中发生错误。",
+                    "vi": "Đã xảy ra lỗi trong quá trình phân tích."
+                },
+                "suggestion": {
+                    "ko": "전문가 검토가 필요합니다.",
+                    "en": "Expert review required.",
+                    "ja": "専門家のレビューが必要です。",
+                    "zh": "需要专家审查。",
+                    "vi": "Cần đánh giá chuyên gia."
+                }
             })
 
     print(f"[SUCCESS] 총 {len(results)}개 조항 분석 완료")
@@ -168,20 +180,24 @@ def analyze_clause(clause: str, related_laws: list, context: str = ""):
 3. 응답은 반드시 JSON 형식이어야 한다.
 
 ## 응답 JSON 형식:
-"모든 설명(explanation)과 제안(suggestion)은 ko, en, ja 키를 가진 객체로 작성해야 하며, 각 언어에 맞는 법률 용어를 사용하여 번역하라."
+"모든 설명(explanation)과 제안(suggestion)은 ko, en, ja, zh, vi 키를 가진 객체로 작성해야 하며, 각 언어에 맞는 법률 용어를 사용하여 번역하라."
 {
   "violation": false,
   "law_reference": "관련 법 조항 또는 '해당 없음' (Relevant Law Article or 'N/A')",
   "explanation": {
     "ko": "한국어 판단 근거 (전체 맥락 고려)",
     "en": "Judgement basis in English (Considering overall context)",
-    "ja": "日本語での判断根拠 (全体적인 문맥 고려)"
+    "ja": "日本語での判断根拠（全体的な文脈を考慮）",
+    "zh": "中文判断依据（考虑整体背景）",
+    "vi": "Căn cứ phán đoán bằng tiếng Việt (Xem xét bối cảnh tổng thể)"
   },
   "severity": "SAFE",
   "suggestion": {
     "ko": "한국어 수정 제안 (없으면 '해당 없음')",
     "en": "Modification suggestion in English (If none, 'N/A')",
-    "ja": "日本語での修正提案 (なければ '該当なし')"
+    "ja": "日本語での修正提案（なければ '該当なし'）",
+    "zh": "中文修改建议（如无则填 '不适用'）",
+    "vi": "Đề xuất sửa đổi bằng tiếng Việt (Nếu không có, ghi 'Không có')"
   }
 }
 """
@@ -231,7 +247,16 @@ def analyze_clause(clause: str, related_laws: list, context: str = ""):
 
     except Exception as e:
         print(f"[ERROR] 단일 분석 에러: {str(e)}")
-        return {"severity": "DISADVANTAGE", "explanation": "분석 중 오류 발생"}
+        return {
+            "severity": "DISADVANTAGE",
+            "explanation": {
+                "ko": "분석 중 오류 발생",
+                "en": "Error occurred during analysis",
+                "ja": "分析中にエラー発生",
+                "zh": "分析过程中发生错误",
+                "vi": "Lỗi xảy ra trong quá trình phân tích"
+            }
+        }
 
 
 def reformat_contract_text(raw_text: str):
@@ -240,7 +265,7 @@ def reformat_contract_text(raw_text: str):
     단어의 내용은 절대 바꾸지 않고, 줄바꿈과 띄어쓰기만 전문적인 양식에 맞게 조정함.
     """
     print("[DEBUG] AI 기반 텍스트 레이아웃 정규화 시작...")
-    
+
     prompt = f"""너는 법률 문서 전문 편집가이다.
 다음 [원문 텍스트]는 OCR을 통해 추출된 계약서 내용이다. 
 문서의 내용은 절대로 수정하거나 가필하지 말고, 오직 **줄바꿈(Line Breaks)**과 **띄어쓰기(Spacing)**만 계약서 양식에 맞게 전문적으로 다듬어라.
@@ -277,4 +302,4 @@ def reformat_contract_text(raw_text: str):
 
     except Exception as e:
         print(f"[ERROR] 텍스트 정규화 실패: {str(e)}")
-        return raw_text # 실패 시 원본 반환
+        return raw_text  # 실패 시 원본 반환

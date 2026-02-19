@@ -2,9 +2,13 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+
 import koTranslation from './locales/ko/translation.json';
 import enTranslation from './locales/en/translation.json';
-import jaTranslation from './locales/ja/translation.json'
+import jaTranslation from './locales/ja/translation.json';
+import zhTranslation from './locales/zh/translation.json';
+import viTranslation from './locales/vi/translation.json'
+
 
 const resources = {
   ko: {
@@ -15,8 +19,15 @@ const resources = {
   },
   ja: {
     translation: jaTranslation
-  }
+  },
+  zh: {
+    translation: zhTranslation
+  },
+  vi: {
+    translation: viTranslation
+  },
 };
+
 
 i18n
   // 브라우저 언어 자동 감지
@@ -28,11 +39,11 @@ i18n
     resources,
     fallbackLng: 'ko', // 기본 언어
     debug: false, // 개발 중에는 true로 설정
-    
+
     interpolation: {
       escapeValue: false // React가 이미 XSS 방지함
     },
-    
+
     detection: {
       // 언어 감지 순서
       order: ['localStorage', 'navigator', 'htmlTag'],
@@ -41,4 +52,6 @@ i18n
     }
   });
 
+
 export default i18n;
+

@@ -2,18 +2,24 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 
+
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
+
 
   const languages = [
     { code: 'ko', name: '한국어', flag: '🇰🇷' },
     { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'ja', name: '日本語', flag: '🇯🇵' }
+    { code: 'ja', name: '日本語', flag: '🇯🇵' },
+    { code: 'zh', name: '中文', flag: '🇨🇳' },
+    { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' }
   ];
+
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
+
 
   return (
     <div className="relative group">
@@ -23,6 +29,7 @@ const LanguageSwitcher = () => {
           {languages.find(lang => lang.code === i18n.language)?.flag || '🌍'}
         </span>
       </button>
+
 
       {/* Dropdown */}
       <div className="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-slate-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
@@ -47,4 +54,6 @@ const LanguageSwitcher = () => {
   );
 };
 
+
 export default LanguageSwitcher;
+
